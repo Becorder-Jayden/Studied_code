@@ -26,7 +26,21 @@ import pyautogui
 # pyautogui.moveT(trash_icon)
 
 # 2. 범위 지정
-# trash_icon = pyautogui.locateOnScreen("trash_icon.png", region=x, y, width, height)
-# pyautogui.moveT(trash_icon)
+# trash_icon = pyautogui.locateOnScreen("trash_icon.png", region=(1488, 623, 1881-1488, 137)
+# pyautogui.moveTo(trash_icon)
 
-pyautogui.mouseInfo()
+# pyautogui.mouseInfo()
+# 1488, 623
+# 1881, 760
+
+# 3. 정확도 조정
+run_btn = pyautogui.locateOnScreen('run_btn.png', confidence=0.7) # 90 % 이상 일치 시 실행
+pyautogui.moveTo(run_btn) 
+
+
+# # 자동화 대상이 바로 보여지지 않는 경우
+# file_menu_notepad = pyautogui.locateOnScreen('file_menu_notepad.png')
+# if file_menu_notepad:
+#     pyautogui.click(file_menu_notepad)
+# else:
+#     print('발견 실패')
