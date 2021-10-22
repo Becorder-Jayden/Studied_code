@@ -38,9 +38,11 @@ run_btn = pyautogui.locateOnScreen('run_btn.png', confidence=0.7) # 90 % 이상 
 pyautogui.moveTo(run_btn) 
 
 
-# # 자동화 대상이 바로 보여지지 않는 경우
-# file_menu_notepad = pyautogui.locateOnScreen('file_menu_notepad.png')
-# if file_menu_notepad:
-#     pyautogui.click(file_menu_notepad)
-# else:
-#     print('발견 실패')
+# 자동화 대상이 바로 보여지지 않는 경우
+file_menu_notepad = pyautogui.locateOnScreen('file_menu_notepad.png')
+if file_menu_notepad:
+    pyautogui.click(file_menu_notepad)
+else:
+    print('발견 실패')
+
+# 터미널에 나오는 안내가 이해되지 않아서 잠시 중단.. 
