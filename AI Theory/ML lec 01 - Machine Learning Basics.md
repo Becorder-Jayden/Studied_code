@@ -1,6 +1,14 @@
 # 모두를 위한 딥러닝 강좌 시즌 1
 
-by Sung Kim
+by Sung Kim, 김성훈 교수님
+
+링크
+
+ https://www.youtube.com/watch?v=qPMeuL2LIqY&list=PLlMkM4tgfjnLSOjrEJN31gZATbcj_MpUm
+
+https://www.youtube.com/watch?v=-57Ne86Ia8w&list=PLlMkM4tgfjnLSOjrEJN31gZATbcj_MpUm&index=3
+
+
 
 
 
