@@ -1,5 +1,5 @@
 
-const API_KEY = "노출 주의";  // 노출 주의
+const API_KEY = "f9c5258303d07a78cd07c8af16588801";  // 노출 주의
 
 function onGeoOk(position){
     const lat = position.coords.latitude;
@@ -14,5 +14,5 @@ function onGeoOk(position){
         city.innerText = data.name;
         weather.innerText = data.weather[0].main;
 
-function onGeoError() {
-  alert("Can't find you. No weather for you.");
+// function onGeoError() {
+//   alert("Can't find you. No weather for you.");}
