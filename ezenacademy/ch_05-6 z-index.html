@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>z-index 프로퍼티</title>
+    <style>
+      div {
+        position: absolute;
+      }
+
+      img {
+        position: absolute;
+      }
+
+      #img1 {
+        z-index: -3;
+        left: 10px;
+        top: 20px;
+      }
+      #img2 {
+        z-index: 2;
+        left: 40px;
+        top: 30px;
+      }
+      #img3 {
+        z-index: 3;
+        left: 80px;
+        top: 40px;
+      }
+      #img4 {
+        z-index: 7;
+        left: 120px;
+        top: 50px;
+      }
+      #img5 {
+        z-index: 9;
+        left: 160px;
+        top: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>z-index 프로퍼티</h3>
+    <hr />
+    <div>
+      <img id="img1" src="imgs/apple.jpg" width="100" alt="그림1" />
+      <img id="img2" src="imgs/banana.jpg" width="100" alt="그림1" />
+      <img id="img3" src="imgs/mango.jpg" width="100" alt="그림1" />
+      <img id="img4" src="imgs/elvis.jpg" width="100" alt="그림1" />
+      <img id="img5" src="imgs/shrek.png" width="100" alt="그림1" />
+    </div>
+  </body>
+</html>
