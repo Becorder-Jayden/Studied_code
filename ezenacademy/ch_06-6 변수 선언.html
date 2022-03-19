@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수 선언</title>
+  </head>
+  <body>
+    <h3>변수 선언, 전역/지역/블록 변수</h3>
+    <hr />
+    <script>
+      let x;
+      function f() {
+        let y;
+        x = 10;
+        y = 20;
+        z = 30; // 새로운 전역변수 z 선언, 값이 저장
+        if (y == 20) {
+          let b = 20;
+          b++;
+          document.write('if 블록 내 블록변수 b = ' + b + '<br>');
+        }
+        // 이곳에서 블록 변수 b에 접근할 수 없음 (b가 선언된 블록 외부)
+
+        document.write('함수 f()내 지역변수 y = ' + x + '<br>');
+        document.write('함수 f()내 지역변수 z = ' + z + '<br>');
+      }
+
+      f();
+    </script>
+  </body>
+</html>
