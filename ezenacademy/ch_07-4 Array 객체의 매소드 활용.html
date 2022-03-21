@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array 객체의 메소드 활용</title>
+    <script>
+      function pr(msg, arr) {
+        document.write(msg + arr.toString() + '<br>');
+      }
+    </script>
+  </head>
+  <h3>Array 객체의 메소드 활용</h3>
+  <hr />
+  <body>
+    <script>
+      let a = new Array('황', '김', '이');
+      let b = new Array('박');
+      let c;
+
+      pr('배열 a = ', a);
+      pr('배열 b = ', b);
+      document.write('<br>');
+
+      c = a.concat(b); // concat: 결합
+      pr('c = a.concat(b) 후 c = ', c);
+      pr('c = a.concat(b) 후 a = ', a);
+      document.write('<br>');
+
+      c = a.join('##'); // join: 연결
+      pr('c = a.join(b) 후 c = ', c);
+      pr('c = a.join(b) 후 a = ', a);
+      document.write('<br>');
+
+      c = a.reverse();
+      pr('c = a.reverse() 후 c = ', c);
+      pr('c = a.reverse() 후 a = ', a);
+      document.write('<br>');
+
+      c = a.slice(1, 2);
+      pr('c = a.slice(1, 2) 후 c = ', c);
+      pr('c = a.slice(1, 2) 후 a = ', a);
+      document.write('<br>');
+
+      c = a.sort();
+      pr('c = a.sort() 후 c = ', c);
+      pr('c = a.sort() 후 c = ', c);
+      document.write('<br>');
+
+      c = a.toString(); // toSring()은 원소 사이에 ','를 넣어 연결된 문자열 생성
+      document.write('a.toString() : ' + c);
+    </script>
+  </body>
+</html>
