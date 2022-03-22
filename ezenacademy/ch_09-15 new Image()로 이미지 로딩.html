@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>new Image()로 이미지 로딩</title>
+    <script>
+      let files = ["imgs/apple.jpg", "imgs/banana.jpg", "imgs/mango.jpg", "imgs/shrek.png", "imgs/chosun.jpeg", "imgs/elvis.jpg", "imgs/etnews.png"]
+      let imgs = new Array();
+      for (let i = 0;i<files.length;i++){
+        imgs[i] = new Image();
+        imgs[i].src = files[i];
+      }
+
+      let next = 1;
+      function change(img) {
+        img.src = imgs[next].src;
+        next ++;
+        next %= imgs.length;
+      }
+    </script>
+  </head>
+  <p>
+    <h3>new Image()로 이미지 로딩</h3>
+    <hr>
+    이미지를 클릭하면 다음 이미지를 보여줍니다.
+  </p>
+  <img style="border:20px ridge wheat", src="imgs/apple.jpg" alt="." width = "200" height="200" onclick="change(this)">
+  </body>
+</html>
