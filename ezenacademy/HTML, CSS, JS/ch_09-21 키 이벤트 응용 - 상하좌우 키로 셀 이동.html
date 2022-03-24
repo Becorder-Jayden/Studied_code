@@ -14,7 +14,7 @@
     </style>
     <script>
       let tds;
-      let preIndex = 0,
+      let prevIndex = 0,
         index = 0;
       window.onload = function () {
         tds = document.getElementsByTagName('td');
@@ -39,10 +39,10 @@
             index++;
             break;
         }
+        tds[index].style.backgroundColor = 'orchid';
+        tds[prevIndex].style.backgroundColor = 'white';
+        prevIndex = index;
       };
-      tds[index].style.backgroundColor = 'orchid';
-      tds[prevIndex].style.backgroundColor = 'white';
-      preIndex = index;
     </script>
   </head>
   <body>
