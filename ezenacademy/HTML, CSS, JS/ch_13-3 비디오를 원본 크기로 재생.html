@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>비디오 원본 크기로 출력</title>
+  </head>
+  <!-- 재생여부 확인할 것, 잘 이해 안감 -->
+  <body>
+    <h3>원본 크기로 비디오 재생</h3>
+    <hr />
+    <video id="video" width="0" height="0" autoplay>
+      <source src="resources/bear.mp4" type="video/mp4" />
+      웹 브라우저가 video 태그를 지원하지 않습니다.
+    </video>
+    <script>
+      let video = document.getElementById('video');
+      video.onloadedmetadata = function f(e) {
+        alert(video.videoWidth + 'x' + video.videoHeight);
+        video.width = video.videoWidth;
+        video.height = video.videoHeight;
+      };
+    </script>
+  </body>
+</html>
