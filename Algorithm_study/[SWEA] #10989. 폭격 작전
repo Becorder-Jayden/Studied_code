@@ -1,0 +1,54 @@
+#### 풀기 전 생각해보기😮
+
+- IM 시험 대비
+- 델타 값 이용해서 방향 탐색
+- visited 활용해서 계산 중복 방지하기
+
+---
+
+#### 풀이🛫
+
+```python
+# U, R, D, L
+dcol = [-1, 0, 1, 0]
+drow = [0, 1, 0, -1]
+T = int(input())
+for t in range(T):
+    N, M = map(int, input().split())
+    arr = [list(map(int, input().split())) for _ in range(N)]
+
+visited = [[0] * N for _ in range(N)]
+kills = 0
+
+for m in range(M):
+    C, R, P = map(int, input().split())
+
+    # 폭탄이 떨어진 곳의 피해값
+    if visited[C][R] == 0:
+        kills += arr[C][R]
+        visited[C][R] += 1
+
+    # 폭탄 주위로부터 받은 피해값
+    for p in range(1, P+1):            # 해당 지점을 제외하므로 범위는 1 ~ P+1
+        for v in range(4):
+            nrow = R + drow[v]*p
+            ncol = C + dcol[v]*p
+            if 0<=nrow<N and 0<=ncol<N and visited[ncol][nrow] == 0:
+                kills += arr[ncol][nrow]
+                visited[ncol][nrow] += 1
+
+print(f"#{t+1}", kills)
+```
+
+#### 핵심 정리🎁
+
+- visited를 이용해서 몇번 계산되었는지 확인할 수 있다.  
+  visited = 0 or 1 판단도 좋지만, visited += 1 연산을 이용할 수 도 있다.
+
+#### 
+
+#### 후기 😎
+
+- 오류가 생겼을 때 빠르게 대처하는 게 미흡한 듯하다  
+
+- 더 많이 풀고 문제에 대한 극복 능력 기르기
