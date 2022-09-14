@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="311d37e5-f2a2-4568-b06e-cb6cf9ca8985" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.10.19_#1316 그룹단어 체커.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.10.20_#1427 소트인사이드.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.10.20_#2751 수 정렬하기 2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.10.21_#7568 덩치.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.10.25_#1181 단어 정렬.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.10.26_#2581 소수.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.10.26_#2609 최대공약수와 최소공배수.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.10.28_#10867 중복 빼고 정렬하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.10.28_#1934 최소공배수.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.10.29_#7785 회사에 있는 사람.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.01_#16435 스네이크 버드.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.03_#11653 소인수분해.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.03_#1302 베스트 셀러.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.03_#2217 로프.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.08_#14646 욱제는 결정장애야!!.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.11_#3135 라디오.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.16_#10807 개수 세기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.16_#10808 알파벳 개수.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.16_#2577 숫자의 개수.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.17_#13300 방 배정.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.17_#1475 방 번호.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.22_#10870 피보나치 수 5.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.26_#11399 ATM.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.11.29_#11729 하노이 탑 이동 순서.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.08_#11047 동전 0.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.09_#1931 회의실 배정.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.10_#1541 잃어버린 괄호.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.12_#코드업_3015 성적표 출력.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.12_#코드업_3019 스케줄 정리.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.12_#코드업_3170 기억력 테스트 9.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.16_#코드업_3120.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.17_#2798 블랙잭.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.17_#코드업_4012 석차 계산.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.19_#13305 주유소.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.19_#2231 분해합.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.19_#코드업자바_1008 [기초-출력] 출력하기08.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.20_#7568 덩치.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.22_#1436 영화감독 숌.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.24_#1012 [기초-입출력] 실수 1개 입력받아 그대로 출력하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.24_#1018 [기초-입출력] 시간 입력받아 그대로 출력하ㅣ.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.24_#1019 [기초-입출력] 연월일 입력받아 그대로 출력하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 # 1076 [기초-반복실행구조] 문자 1개 입력받아 알파벳 출력하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 # 1079 [기초-종합] 원하는 문자가 입력될 때까지 반복 출력하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 # 1082 [기초-종합] 16진수 구구단.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 # 1084 [기초-종합] 빛 섞어 색 만들기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 # 1085 [기초-종합] 소리 파일 저장용량 계산하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 # 1090 [기초-종합] 수 나열하기2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 #1041 [기초-산술연산] 정수 2개 입력받아 나눈 몫 출력하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 #1045 [기초-산술연산] 정수 2개 입력받아 자동 계산하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 #1048 [기초-비트시프트연산] 한 번에 2의 거듭제곱 배로 출력하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 #1059 [기초-비트단위논리연산] 비트단위로 NOT 하여 출력하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 #1064 [기초-삼항연산] 정수 3개 입력받아 가장 작은 수 출력하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 #1066 [기초-조건 선택실행구조] 정수 3개 입력받아 짝 홀 출력하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 #1069 [기초-조건 선택실행구조] 평가 입력받아 다르게 출력하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 #1070 [기초-조건 선택실행구조] 월 입력받아 계절 출력하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 #1071 [기초-반복실행구조] 0 입력될 때까지 무한 출력하기1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.25 #11071 [기초-반복실행구조] 0 입력될 때까지 무한 출력하기1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.26 #1093 [기초-1차원배열] 이상한 출석 번호 부르기1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.26 #1095 [기초-1차원배열] 이상한 출석 번호 부르기3.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2021.12.27 #1096 [기초-2차원배열] 바둑판에 흰 돌 놓기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.03 #2667 단지번호붙이기 (DFS).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.04 #1012 유기농 배추 (DFS).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.05 #2606 바이러스 (BFS 풀이).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.06 #2164 카드 2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.07 #2667 단지 번호 붙이기 (BFS 풀이).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.08 #1012 유기농 배추 (BFS 풀이).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.09 #2178 미로탐색.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.11 #7576 토마토.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.12 # 1158 요세푸스 문제.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.12 #7569 토마토.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.14 #1697 숨바꼭질.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.16 #10809 알파벳 찾기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.16 #2675 문자열 반복.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.16 #7562 나이트의 이동.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.19 #15649 N과 M (1).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.20 #15650 N과 M (2).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.20 #15651 N과 M (3).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.20 #15652 N과 M (4).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.01.27 #10845 큐.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.07 #10814 나이순 정렬.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.08 #1874 스택 수열.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.10 #1003 피보나치 함수.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.10 #10250 ACM 호텔.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.10 #2775 부녀회장이 될테야.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.10 #9146 파도반 수열.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.10 #9184 신나는 함수 실행.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.11 #1002 터렛.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.12 #1932 정수 삼각형.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.14 #2525 오븐 시계.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.14 #2579 계단 오르기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.15 #1904 01타일.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.15 #2292 벌집.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.15 #2480 주사위 세개.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.15 #4513 직각삼각형.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.15 #5622 다이얼.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.16 #11053 가장 긴 증가하는 부분 수열.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.17 # 2839 설탕 배달.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.17 # 2869 달팽이는 올라가고 싶다.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.17 #1463 1로 만들기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.18 # 2941 크로아티아 알파벳.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.19 #1316 그룹 단어 체커.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.19 #18258 큐 2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.19 #1978 소수 찾기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.20 #10866 덱.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.20 #10989 수 정렬하기 3.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.20 #11651 좌표 정렬하기 2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.20 #2108 통계학.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.21 #1037 약수.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.21 #10816 숫자 카드 2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.21 #1920 수 찾기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.21 #3009 네 번째 점.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.21 #5086 배수와 약수.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.22 #1929 소수 구하기 (복습 필요).md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.22 #2805 나무 자르기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.23 #1193 분수찾기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.24 #11050 이항 계수 1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.24 #11723 집합.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.24 #1676 팩토리얼 0의 개수.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.24 #17219 비밀번호 찾기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.24 #1764 듣보잡.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.25 #15829 Hashing.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.25 #4949 균형잡힌 세상.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.25 #9012 괄호.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.25 #9375 패션왕 신해빈.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.26 #11726 2xn 타일링.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.26 #11727 2xn 타일링 2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.26 #1620 나는야 포켓몬 마스터 이다솜.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.27 #1065 한수.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.27 #18870 좌표 압축.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.27 #4673 셀프 넘버.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.02.28 #3053 택시 기하학.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.03.01 #11286 절댓값 힙.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.03.01 #1927 최소 힙.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.03.01 #9095 1, 2, 3 더하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.03.04 #10815 숫자 카드.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.03.06 #11279 최대 힙.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.03.06 #3273 두 수의 합.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.03.09 #1966 프린터 큐.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/2022.03.10 #2447 별 찍기 - 10.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211007.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211008.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211012.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211013.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211014.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211015.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211018.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211019.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211020.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211021.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211022.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211025.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211026.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211027.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211028.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211029.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211101.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211102.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211103.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211104.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211105.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211108.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211109-10.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211111.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211112.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211116.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211117.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211118.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211122.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211123.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211124.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211126.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211129.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211130.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211201.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211202.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211203.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211205.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211206.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211207.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211208.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211209.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211210.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211212.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211213.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211216.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211217.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211219.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211220.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211221.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211222.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211223.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211224.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211227.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211228.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211229.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/211231.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220102.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220103.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220104.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220105.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220106.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220107.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220108.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220109.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220110.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220111.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220112.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220113.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220114.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220116.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220117.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220119.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220120.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220121.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220122.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220124.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220125.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220126.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220127.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220207.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220208.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220209.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220210.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220211.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220212.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220213.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220214.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220215.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220216.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220217.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220218.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220219.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220220.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220221.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220223.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220224.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220225.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220226.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220227.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220228.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220301.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220302.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220303.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220304.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220305.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220306.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220307.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220308.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220309.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220310.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220311.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220312.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220313.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220314_이취코테.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220325.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220326.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220327.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220328.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/220330.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/Untitled.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/Untitled1.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] # 1979. 어디에 단어가 들어갈 수 있을까_파이썬.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #10593. 가로세로 합_파이썬" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #10989. 폭격 작전" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #11012. 사각영역들의 합" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #11014 농작물 수확_파이썬.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #1210 Ladder1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #1211. Ladder2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #1216. 회문 2_파이썬" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #12712. 파리퇴치3_파이썬.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #14413. 격자판 칠하기" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #1959. 두 개의 숫자열" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #1974. 스도쿠 검증_파이썬.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #2001. 파리퇴치_파이썬.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #4831. 전기버스" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #4861. 회문_파이썬" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[SWEA] #4866. 괄호 검사_파이썬" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[백준 파이썬] # 1018 체스판 다시 칠하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[백준 파이썬] #2309 일곱 난쟁이.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[백준 파이썬] #2477 참외밭.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[백준] #8958.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[이론] 순열과 조합.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[이코테 자료구조] 5. 이진 탐색 알고리즘.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[이코테 자료구조] DFS &amp; BFS.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[이코테 자료구조] 그리디 &amp; 구현.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[이코테 자료구조] 다이나믹 프로그래밍.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[이코테 자료구조] 정렬.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[자바 기초 프로그래밍] 기본 입출력.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[자바 기초 프로그래밍] 반복함수와 재귀함수.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[자바 기초 프로그래밍] 배열.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[자바 기초 프로그래밍] 사용자 정의 함수.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[자바] 메모.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/[자바] 형 변환.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/personal_source_code.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/블록체인에 대한 간단한 설명.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/소수문제 정복하기.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../풀이 해설/에라토스테네스의 체.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="2EjmZV9RDJQ4eqCHKW10NfASrLN" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="311d37e5-f2a2-4568-b06e-cb6cf9ca8985" name="Default Changelist" comment="" />
+      <created>1663117426778</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1663117426778</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
