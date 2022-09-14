@@ -1,0 +1,69 @@
+# [SWEA] #1959. 두 개의 숫자열
+
+#### 풀기 전 생각해보기😮
+
+- 다중 for 구문의 구현
+
+---
+
+#### 풀이🛫
+
+```python
+import sys
+sys.stdin = open("test.txt")
+
+# 1959. 두 개의 숫자열
+T = int(input())
+
+for t in range(T):
+    N, M = map(int, input().split())
+    A = list(map(int, input().split()))
+    B = list(map(int, input().split()))
+
+    li = []
+    if N < M:
+        for j in range(M-N+1):  
+            total = 0
+            for i in range(N):  
+                total += A[i]*B[i+j]
+            li.append(total)
+
+    elif N > M:
+        for j in range(N-M+1):
+            total = 0
+            for i in range(M):
+                total += A[i+j]*B[i]
+            li.append(total)
+
+    elif N == M:
+        total = 0
+        for i in range(N):
+            total += A[i]*B[i]
+        li.append(total)
+
+    answer = 0
+    for i in li:
+        if answer < i:
+            answer = i
+    print(f"#{t+1}", answer)
+```
+
+ 
+
+#### 핵심 정리🎁
+
+- 다중 for 구문을 사용할 때 **기준이 되는 for문이 바깥쪽에 위치하도록** 주의하기
+
+#### 링크💎
+
+[
+
+SW Expert Academy
+
+SW 프로그래밍 역량 강화에 도움이 되는 다양한 학습 컨텐츠를 확인하세요!
+
+swexpertacademy.com
+
+](https://swexpertacademy.com/main/code/problem/problemDetail.do?problemLevel=2&contestProbId=AV5PpoFaAS4DFAUq&categoryId=AV5PpoFaAS4DFAUq&categoryType=CODE&problemTitle=&orderBy=FIRST_REG_DATETIME&selectCodeLang=ALL&select-1=2&pageSize=10&pageIndex=2)
+
+
