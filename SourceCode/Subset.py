@@ -1,6 +1,8 @@
 # 부분집합 구하기
 ## 설명이 필요: 완벽하게 이해하기 어렵다..
 
+
+# 비트연산자 사용
 arr = [1,2,3,4,5]
 def Subset(arr):
     ret = []                # 생성된 부분집합을 반환할 리스트
@@ -13,7 +15,29 @@ def Subset(arr):
 
     return ret
 
-print(Subset(arr))
+# print(Subset(arr))
+
+
+# 재귀함수 이용
+arr = [3, 6, 7]
+n = len(arr)
+bit = [0] * n
+
+def SubsetRecursion(i, k):
+    if i == k:
+        # print(bit)
+        for j in range(k):
+            if bit[j]:
+                print(arr[j], end=' ')
+        print()
+    else:                       # i != k 일 때,
+        bit[i] = 0                  # bit[i]에 0을 넣고
+        SubsetRecursion(i+1, k)     # i+1 깊이로 이동
+        bit[i] = 1                  # bit[i]에 1을 넣고
+        SubsetRecursion(i+1, k)     # i+1 깊이로 이동
+
+SubsetRecursion(0, n)
+
 
 '''
     i      binary       1<<j
