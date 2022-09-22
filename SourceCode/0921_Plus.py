@@ -122,32 +122,32 @@ if n == N:
     ans = max(ans, lst숫자화)
     return
 '''
-# 최대 상금
-def dfs(n):
-    global ans
-    if n == N:
-        ans = max(ans, int(''.join(map(str, lst))))
-        return
-    
-    for i in range(L-1):
-        for j in range(i+1, L):     # L개에서 2개 뽑기
-            cst = ''.join(map(str, lst))
-            if (n, cst) not in v:       # 방문 안한 경우
-                lst[i], lst[j] = lst[j], lst[i]
-                dfs(n+1)
-                v.append((n, cst))
-                lst[i], lst[j] = lst[j], lst[i]
-
-T = int(input())
-for tc in range(1, T+1):
-    st, t = input().split()
-    N = int(t)
-    lst = []
-    for ch in st:
-        lst.append(int(ch))
-
-    L = len(lst)
-    ans = 0     # 최대값
-    dfs(0)
-    
-    print(f'#{tc}')
+# 최대 상금 - 수정 필요
+# def dfs(n):
+#     global ans
+#     if n == N:
+#         ans = max(ans, int(''.join(map(str, lst))))
+#         return
+#
+#     for i in range(L-1):
+#         for j in range(i+1, L):     # L개에서 2개 뽑기
+#             cst = ''.join(map(str, lst))
+#             if (n, cst) not in v:       # 방문 안한 경우
+#                 lst[i], lst[j] = lst[j], lst[i]
+#                 dfs(n+1)
+#                 v.append((n, cst))
+#                 lst[i], lst[j] = lst[j], lst[i]
+#
+# T = int(input())
+# for tc in range(1, T+1):
+#     st, t = input().split()
+#     N = int(t)
+#     lst = []
+#     for ch in st:
+#         lst.append(int(ch))
+#
+#     L = len(lst)
+#     ans = 0     # 최대값
+#     dfs(0)
+#
+#     print(f'#{tc}')

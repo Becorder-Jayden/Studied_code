@@ -56,10 +56,10 @@
                                             # 번거로운 bits 메모리 사용을 줄이기 위해 매개변수만을 이용해서 backtrack() 작성 시도
 #     else:
 #         # 가지치기의 성능에 따라 bits[k]=0, bits[k]=1의 위치를 변경할 수도 있다
-#         bits[k] = 1                     # k번 원소를 포함
+#         bits[k] = 1                       # k번 원소를 포함
 #         backtrack(k+1, cur_sum + arr[k])
 #
-#         bits[k] = 0                     # k번 원소를 포함 안함
+#         bits[k] = 0                       # k번 원소를 포함 안함
 #         backtrack(k+1, cur_sum)
 #
 # backtrack(0, 0)
@@ -77,7 +77,7 @@ def backtrack(k, cur_sum):
         if cur_sum == hap:
             ans += 1
     else:
-        backtrack(k+1, cur_sum + arr[k])
+        backtrack(k+1, cur_sum+arr[k])
         backtrack(k+1, cur_sum)
 
 T = int(input())
