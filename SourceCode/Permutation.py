@@ -14,7 +14,7 @@ def permutation(i, k):
 
 
 p = [i for i in range(1, 11)]
-# permutation(0, len(p))
+# permutation(0, len(p))                 # 시작인덱스, 원소의 개수
 
 
 
