@@ -135,6 +135,8 @@ if n == N:
 #             if (n, cst) not in v:       # 방문 안한 경우
 #                 lst[i], lst[j] = lst[j], lst[i]
 #                 dfs(n+1)
+
+
 #                 v.append((n, cst))
 #                 lst[i], lst[j] = lst[j], lst[i]
 #

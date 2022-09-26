@@ -1,10 +1,7 @@
-import sys
-sys.stdin = open('input.txt')
-
 def PreOrd(v):
     if v == 0:
         return
-    print(P[v], end='')
+    print(P[v], end='')     # 전위순회
     PreOrd(L[v])
     PreOrd(R[v])
 
@@ -12,7 +9,7 @@ def InOrd(v):
     if v == 0:
         return
     InOrd(L[v])
-    print(P[v], end='')
+    print(P[v], end='')     # 중위순회
     InOrd(R[v])
 
 def PosOrd(v):
@@ -20,7 +17,7 @@ def PosOrd(v):
         return
     PosOrd(L[v])
     PosOrd(R[v])
-    print(P[v], end='')
+    print(P[v], end='')     # 후위순회
 
 N = int(input())
 P = [0] * (N+1)
