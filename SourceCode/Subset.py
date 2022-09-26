@@ -1,4 +1,7 @@
 # 부분집합 구하기
+'''
+Power set = 어떤 집합의 공집합과 자기 자신을 포함한 모든 부분집합
+'''
 ## 설명이 필요: 완벽하게 이해하기 어렵다..
 
 
@@ -18,23 +21,24 @@ def Subset(arr):
 # print(Subset(arr))
 
 
-# 재귀함수 이용
+# 부분집합의 상태 공간 트리 → 깊이 우선 탐색으로 모든 부분집합 생성 알고리즘
+# 높이 k에 위치한 노드 = k개의 선택이 이루어진 상태
+
 arr = [3, 6, 7]
 n = len(arr)
 bit = [0] * n
 
 def SubsetRecursion(i, k):
-    if i == k:
-        # print(bit)
+    if i == k:                      # 모든선택이 끝난 상태, 상태공간트리의 단말 노드(leaf node)에 도달
         for j in range(k):
-            if bit[j]:
+            if bit[j]:                  # 해당 노드의 비트를 이용해 표기
                 print(arr[j], end=' ')
         print()
-    else:                       # i != k 일 때,
-        bit[i] = 0                  # bit[i]에 0을 넣고
-        SubsetRecursion(i+1, k)     # i+1 깊이로 이동
-        bit[i] = 1                  # bit[i]에 1을 넣고
-        SubsetRecursion(i+1, k)     # i+1 깊이로 이동
+    else:                           # i != k 일 때, 단말 노드에 도달하지 못한 상태
+        bit[i] = 0                      # bit[i]에 0을 넣고
+        SubsetRecursion(i+1, k)             # i+1 깊이로 이동
+        bit[i] = 1                      # bit[i]에 1을 넣고
+        SubsetRecursion(i+1, k)             # i+1 깊이로 이동
 
 SubsetRecursion(0, n)
 
