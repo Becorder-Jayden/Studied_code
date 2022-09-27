@@ -1,6 +1,8 @@
 import sys
 sys.stdin = open('../Solving/input.txt')
 
+# 수민's 풀이
+
 def perm(depth, N, visited=0, temp=0):
     global ans
     if depth == N:              # 순열의 깊이가 N에 도달했을 때
@@ -12,10 +14,6 @@ def perm(depth, N, visited=0, temp=0):
         return
 
     for i in range(N):
-        print('visited:', visited)
-        print('1<<i:', 1<<i)
-        print('visited & (1<<i):', visited & (1<<i))
-        print()
         if visited & (1<<i):
             continue
         visited += 1 << i
