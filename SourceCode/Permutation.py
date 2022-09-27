@@ -1,9 +1,3 @@
-'''
-순열 ← 백트래킹
-'''
-
-
-
 # p = []          # 데이터가 저장된 배열
 # k, n = 0, 0     # k:원소의 개수, n: 선택된 원소의 수
 
@@ -20,7 +14,7 @@ def permutation(i, k):
 
 
 p = [i for i in range(1, 11)]
-# permutation(0, len(p))                 # 시작인덱스, 원소의 개수
+# permutation(0, len(p))
 
 
 
