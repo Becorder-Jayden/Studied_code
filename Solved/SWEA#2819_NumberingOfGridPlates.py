@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('../Solving/input.txt')
 
 # 정답은 맞췄지만 시간이 너무 오래걸림
 # 수민's help : 재귀 함수의 순서를 바꾸어서 해결

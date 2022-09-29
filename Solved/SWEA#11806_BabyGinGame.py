@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('../Solving/input.txt')
 
 # 탐색 범위에 대해서 확인 잘 할 것..
 # runtim error일 경우 특히 인덱스 범위 잘 살펴볼 것

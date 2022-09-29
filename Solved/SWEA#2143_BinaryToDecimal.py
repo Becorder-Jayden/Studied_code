@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('../Solving/input.txt')
 
 T = int(input())
 for t in range(T):

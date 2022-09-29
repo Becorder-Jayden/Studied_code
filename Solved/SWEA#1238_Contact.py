@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('../Solving/input.txt')
 
 # 반례가 있나보다 오답처리 됨 → 완료 : visited 처리가 빠진 부분이 있었다
 # 풀이 : cnt번째 경로들을 표기, 가장 큰 값을 갖는 값중 인덱스가 가장 큰 부분을 정답으로 출력

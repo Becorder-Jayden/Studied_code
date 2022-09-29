@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('../Solving/input.txt')
 
 # 메모리 초과 오답 발생 → 해결
 # 암호의 끝자리가 1로 끝난다는 점을 이용해서 적은 메모리로 암호를 추출할 수 있어야 함

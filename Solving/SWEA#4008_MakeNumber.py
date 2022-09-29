@@ -8,5 +8,8 @@ sys.stdin = open('input.txt')
 def perm(depth, N):
     if depth == N:
         return
+    for i in range(N+1):
+        print(i)
 
-    for i in ['+','-','']
+perm(0, 4)
+

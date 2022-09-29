@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('../Solving/input.txt')
 
 # 매개변수 자체에 더해가는 값을 변수로 사용하는 것도 좋아보임
 

@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open("input.txt")
+sys.stdin = open("../Solving/input.txt")
 
 # 9/15 풀이 완료
 # 후위 순회 방식 정의

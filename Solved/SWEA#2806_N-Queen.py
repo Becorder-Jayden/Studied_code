@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('../Solving/input.txt')
 
 # 0~n으로 만들 수 있는 수 조합 생성
 # 시간을 줄이는 방법 생각

@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('../Solving/input.txt')
 
 # 16진수 → 2진수 → 10진수 순서대로 변환
 dict = {'0': '0000', '1': '0001', '2': '0010', '3': '0011',

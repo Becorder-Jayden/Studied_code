@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('../Solving/input.txt')
 
 def exp(k, S):         # k: 인덱스, S: 합계
     global ans              # ans 전역 변수를 불러옴

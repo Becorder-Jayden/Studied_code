@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('../Solving/input.txt')
 
 # 9/16 풀이 완료
 # 진행 상황 : 10번 테스트 케이스 오답만 해결하면 됨
