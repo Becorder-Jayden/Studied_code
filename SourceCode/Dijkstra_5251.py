@@ -18,7 +18,7 @@ def dijkstra(s, V):     # 시작 정점, 정점의 개수
             if U[i] == 0 and minV > D[i]:       # 확인되지 않았고, 가중치가 초기값보다 작을 경우:
                 minV = D[i]
                 w = i
-        U[w] = 1                # 확인 표시
+        U[w] = 1                # 확인 표시z
 
         for v in range(V+1):
             if 0 < adjM[w][v] < 0xfffff:
