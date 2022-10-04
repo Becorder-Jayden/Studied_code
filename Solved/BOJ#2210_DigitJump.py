@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('../Solving/input.txt')
 
 # 블로그 참고 수정
 # 1: 입력값을 받아올 때 숫자가 아닌 '문자'로 받아옴

@@ -1,33 +1,30 @@
 import sys
-sys.stdin = open('input.txt', encoding='UTF-8')
+sys.stdin = open('SWEA#4012_Cook.txt')
 
-# 하아.. x 09/30
+# N이 6개 이상일 때는 어떻게 해야 하는건지 모르겠음..
 
-# 순열로 조합가능한 집합 만들기
-def perm(depth, N, S=0):
-    global visited, ans
-    if depth == N:
-        A, B = temp[:N//2], temp[N//2:]
-        print(A, B)
-        # print(arr[A[0]][A[1]] + arr[A[1]][A[0]])
-        # print(arr[B[0]][B[1]] + arr[B[1]][B[0]])
-        return
+# N개의 숫자 중 N//2개 선택
+def perm(i, k):
+    if i == k:
+        ret = []
+        a, b = temp[:N//2], temp[N//2:]
+        for j in range(N//2):
+            ret.append(arr[a[j]][b[j]] + arr[b[j]][a[j]])
+        print(ret)
 
-    for i in range(N):
-        if visited & (1 << i): continue
-        visited += 1 << i
-        temp[depth] = i
-        perm(depth+1, N)
-        visited -= 1 << i
+    for j in range(k):
+        if visited[j] == 0:
+            visited[j] = 1
+            temp[i] = idx[j]
+            perm(i+1, N)
+            visited[j] = 0
 
 
 for tc in range(1, int(input())+1):
     N = int(input())
     arr = [list(map(int, input().split())) for _ in range(N)]
-    visited = 0
+    idx = [i for i in range(N)]
     temp = [0] * N
-    ans = 0
-    perm(0, N, 0)
+    visited = [0] * N
 
-    for i in arr:
-        print(i)
+    perm(0, N)

@@ -87,7 +87,7 @@ def backtrack(k):
         pick.append(arr[i])
         backtrack(k+1)      # 재귀적 호출할 때 기준값+1
         pick.pop()
-backtrack(0)            # 보통은 시작 기준을 변수로 주고 시작
+# backtrack(0)            # 보통은 시작 기준을 변수로 주고 시작
 
 
 # ===============================
@@ -112,7 +112,7 @@ for i in range(N):              # 첫번째 요소를 선택
     pick.pop()
 
 
-
+z
 # 위 코드의 경우 리스트에 넣었다 뺏다가 하는 방법
 # 메모리를 적게 쓰고 교체하는 아래 방식을 더 자주 사용
 
@@ -155,4 +155,4 @@ for tc in range(1, int(input())+1):
     visited = 0
     temp = [0] * N
     ans = 0
-    perm(0, N, 0)
+    # perm(0, N, 0)
