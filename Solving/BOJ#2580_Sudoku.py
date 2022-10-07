@@ -11,6 +11,8 @@ def exp_col(col, row):
     for i in cnt_li:
         if i == 0:
             cnt_zero += 1
+            if cnt_zero > 1:
+                return
     if cnt_zero == 1:
         for i in range(9):
             if arr[col][i] == 0:
@@ -24,12 +26,19 @@ def exp_row(col, row):
     for i in cnt_li:
         if i == 0:
             cnt_zero += 1
+            if cnt_zero > 1:
+                return
     if cnt_zero == 1:
         for i in range(9):
             if arr[i][row] == 0:
                 arr[i][row] = cnt_li.index(0)
 
 def exp_3x3(col, row):
+    cnt_li = [0] * 10
+    if 0<=col<3 and 0<=row<3:
+        for col in range(3):
+            for row in range(3):
+                arr[col][row]
     pass
 
 
@@ -46,6 +55,7 @@ for col in range(9):
 for row in range(9):
     exp_row(0, row)
 
+print(zero_li)
 for i in arr:
     print(i)
 
