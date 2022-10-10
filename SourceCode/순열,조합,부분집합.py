@@ -1,3 +1,4 @@
+# == try myself ==
 def comb(level, start, temp):
     if level == 3:
         print(temp)
@@ -42,3 +43,52 @@ def subset(level, temp):
 
 # arr = [i for i in range(8)]
 # subset(0, [])
+
+
+
+
+
+
+
+
+
+# ============= 빛수민 교수님의's 설명 ============
+
+def comb(level,start,temp): # level : 내가 몇 개 뽑겠다. start : 내가 직전에 이거 뽑았어, temp: 조합
+    if level == 3:
+        print(temp)
+        return
+    for i in range(start+1, 7):
+        comb(level+1, i, temp+[arr[i]])
+
+def perm(level,temp):
+    if level == 3:
+        print(temp)
+        return
+    for i in range(0,7):
+        # if arr[i] in temp:            # 전에 뽑았던 거면 뽑지 마라
+        if visited[i] == True:
+            continue
+        visited[i] = True
+        perm(level+1, temp+[arr[i]])
+        visited[i] = False
+
+def sub_set(level,temp):  # 집합의 원소의 개수
+    if level == 3:
+        print(temp)
+        return
+    sub_set(level+1, temp)
+    sub_set(level+1, temp+[arr[level]])
+
+
+# visited = [False]*7
+
+# arr = [1,2,3,4,5,6,7]
+# arr = [1,2,3]
+
+# comb(0,-1,[])
+# perm(0,[])
+# sub_set(0,[])
+
+
+

@@ -42,6 +42,9 @@ def exp_3x3(col, row):
     pass
 
 
+
+
+
 arr = [list(map(int, input().split())) for _ in range(9)]
 zero_li = []
 for col in range(9):
