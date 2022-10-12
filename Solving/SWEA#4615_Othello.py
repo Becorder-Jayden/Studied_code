@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('SWEA#4012_Cook.txt')
+sys.stdin = open('../Solved/SWEA#4012_Cook.txt')
 
 ## 9/16 집에가서 다시 풀어보기 ㅠㅠ
 

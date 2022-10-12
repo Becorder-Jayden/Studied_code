@@ -25,15 +25,13 @@ def backtrack(k):
         bits[k] = i
         backtrack(k+1)         # 재귀 호출의 실행
     '''
+    i = 0
+    bits[k] = 0     # k번 원소를 포함하지 않음
+    backtrack(k+1)
 
-    else:
-        # i = 0
-        bits[k] = 0     # k번 원소를 포함하지 않음
-        backtrack(k+1)
-
-        # i = 1
-        bits[k] = 1     # k번 원소를 포함
-        backtrack(k+1)
+    # i = 1
+    bits[k] = 1     # k번 원소를 포함
+    backtrack(k+1)
 
 
 backtrack(0)    # 시작 값을 0으로 주고 실행 시작
