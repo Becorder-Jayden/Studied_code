@@ -41,8 +41,8 @@ def subset(level, temp):
     subset(level+1, temp)
     subset(level+1, temp+[arr[level]])
 
-# arr = [i for i in range(8)]
-# subset(0, [])
+arr = [i for i in range(8)]
+subset(0, [])
 
 
 
