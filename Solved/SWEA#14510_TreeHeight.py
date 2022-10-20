@@ -73,7 +73,7 @@ sys.stdin = open('SWEA#14510_TreeHeight.txt')
 
 
 
-# 승환 풀이
+# 승환 풀이 ehdna
 for t in range(1, int(input()) + 1):
     N = int(input())
     arr = list(map(int, input().split()))
