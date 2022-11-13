@@ -16,7 +16,6 @@ sys.stdin = open('BOJ#16234_Migration.txt')
 
 from collections import deque
 
-
 dcol = [1, 0, -1, 0]
 drow = [0, 1, 0, -1]
 
@@ -83,6 +82,7 @@ def migrate(col, row):
                         cnt += 1
         # print(S, cnt, S//cnt)
 
+# 하루동안 일어나는 일에 대해 기록
 def aday():
     global ans, go, visited, wall_lst
     visited = [[0] * N for _ in range(N)]
@@ -91,8 +91,8 @@ def aday():
     find_wall()
     print()
     print('find_wall 이후 visited')
-    # for i in visited:
-    #     print(*i)
+    for i in visited:
+        print(*i)
 
 
     open_wall()
@@ -114,6 +114,7 @@ def aday():
     print(f'ans가 {ans}일 때 arr')
     for i in arr:
         print(*i)
+
 
 N, L, R = map(int, input().split())
 arr = [list(map(int, input().split())) for _ in range(N)]
