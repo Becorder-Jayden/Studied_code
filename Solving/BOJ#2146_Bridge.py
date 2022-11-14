@@ -38,7 +38,6 @@ def divide_island():
                                     # if visited[col][row]:
                                     #     border_lst.append((col, row))
                         arr[col][row] = 0   # 다리가 1칸으로 충분할 때를 위한 변경
-
     # col, row for문을 빼자니 누락되는 값이 있고, 안하자니 메모리 초과(?)이고..
     # for col in range(N):
     #     for row in range(N):
