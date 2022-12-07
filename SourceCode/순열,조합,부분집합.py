@@ -25,9 +25,9 @@ def perm(level, temp):
         perm(level+1, temp+[arr[i]])
         visited -= 1 << i
 
-# arr = [i for i in range(8)]
-# visited = 0
-# perm(0, [])
+arr = [i for i in range(8)]
+visited = 0
+perm(0, [])
 
 # 순열은 arr 리스트 전범위를 대상으로 함, 이미 선택된 원소를 구분하기 위해 visited 사용
 # 비트연산자, visited 리스트, if not in ~, append & pop 등 자기 스타일에 따라 코드형태가 달라지곤 함
@@ -42,7 +42,7 @@ def subset(level, temp):
     subset(level+1, temp+[arr[level]])
 
 arr = [i for i in range(8)]
-subset(0, [])
+# subset(0, [])
 
 
 

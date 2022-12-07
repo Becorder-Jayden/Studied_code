@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt')
+sys.stdin = open('../Solved/SWEA#1249_SupplyRoute.txt`')
 
 ## 9/30 두 방법에 대해 이해하고 정리, 후에 파일 이동시킬 것
 
