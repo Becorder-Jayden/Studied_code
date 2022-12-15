@@ -4,6 +4,7 @@ sys.stdin = open('BOJ#14502_Laboratory.txt')
 # 완전 탐색, BFS
 
 from collections import deque
+import copy
 
 # U,R,D,L
 dcol = [-1,0,1,0]
@@ -27,7 +28,8 @@ def spread_virus(lst):
 
 def comb(level, start, temp):   # level: 깊이, start: 인덱스 기준, temp: 저장공간
     if level == 3:      # 원하는 깊이에 도달할 때 = 원하는 만큼 담았을 때
-        arr_copy = [arr[i][:] for i in range(N)]    # arr 행에 대해서 n개의 슬라이싱 복사 = deepcopy
+        # arr_copy = [arr[i][:] for i in range(N)]    # arr 행에 대해서 n개의 슬라이싱 복사 = deepcopy
+        arr_copy = copy.deepcopy(arr)
         cnt = 0     # 안전한 공간의 개수 저장공간
         # 벽을 세우는 작업 진행
         for c, r in temp:

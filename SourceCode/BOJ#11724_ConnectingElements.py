@@ -2,6 +2,10 @@ import sys
 sys.stdin = open('BOJ#11724_ConnectingElements.txt')
 
 # 소스코드 : 무방향 그래프에서 서로 연결된 집단의 개수를 구할 때
+# dfs: 연결된 다른 정점들을 탐색할 때 사용
+# visited: 한번 탐색한 정점을 다시 반복해서 탐색하지 않도록 확인
+
+# pypy3를 이용해 정답
 
 def exp(v):
     visited[v] = True   # 현재 노드 방문 처리

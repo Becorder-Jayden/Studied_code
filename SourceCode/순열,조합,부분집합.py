@@ -1,9 +1,10 @@
 # == try myself ==
-def comb(level, start, temp):
-    if level == 3:
-        print(temp)
-        return
+def comb(level, start, temp):   # level: 깊이, start: 인덱스 기준, temp: 저장공간
+    if level == 3:      # 원하는 깊이에 도달할 때 = 원하는 만큼 담았을 때
+        print(temp)     # 현재의 temp를 출력
+        return          # 재귀의 return
 
+    # 조합: 한번 뽑았던 인덱스는 다시 뽑지 않아야 해, 뽑은 요소는 temp에 push
     for s in range(start+1, 8):
         comb(level+1, s, temp+[arr[s]])
 
