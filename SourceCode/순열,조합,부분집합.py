@@ -8,8 +8,9 @@ def comb(level, start, temp):   # level: 깊이, start: 인덱스 기준, temp: 
     for s in range(start+1, 8):
         comb(level+1, s, temp+[arr[s]])
 
-# arr = [i for i in range(8)]
-# comb(0, -1, [])
+print('comb:')
+arr = [i for i in range(8)]
+comb(0, -1, [])
 
 # 조합의 경우 오름차순으로 정렬된 리스트 중에서 이후의 범위만 대상으로 함
 
@@ -28,6 +29,7 @@ def perm(level, temp):
 
 arr = [i for i in range(8)]
 visited = 0
+print('perm:')
 perm(0, [])
 
 # 순열은 arr 리스트 전범위를 대상으로 함, 이미 선택된 원소를 구분하기 위해 visited 사용
@@ -42,8 +44,9 @@ def subset(level, temp):
     subset(level+1, temp)
     subset(level+1, temp+[arr[level]])
 
+print('subset:')
 arr = [i for i in range(8)]
-# subset(0, [])
+subset(0, [])
 
 
 
