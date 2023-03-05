@@ -1,30 +1,28 @@
-// *를 n개 출력하되 w개마다 줄 바꿈(1)
+// 1,000 이하의 소수를 나열(버전 2)
 
-import java.util.Scanner;
-
-class PrintStars1 {
+class PrimeNumber2 {
     public static void main(String[] args) {
-        Scanner stdIn = new Scanner(System.in);
-        int n, w;
+        int counter = 0;                                // 나눗셈 횟수
+        int ptr = 0;                                    // 찾은 소수의 개수
+        int[] prime = new int[500];                     // 소수를 저장하는 배열
 
-        System.out.println("*를 n개 출력하되 w개마다 줄을 바꿔서 출력합니다.");
+        prime[ptr++] = 2;                               // 2는 소수임
 
-        do {
-            System.out.print("n값: ");
-            n = stdIn.nextInt();
-        } while (n <= 0);
-
-        do {
-            System.out.print("w값: ");
-            w = stdIn.nextInt();
-        } while (w <= 0 || w > n);
-
-        for (int i = 0; i < n; i++) {
-            System.out.print("*");
-            if (i % w == w - 1)
-                System.out.println();    // 줄바꿈
+        for (int n = 3; n <= 1000; n += 2) {            // 조사 대상은 홀수만
+            int i;
+            for (i = 1; i < ptr; i++) {                 // 이미 찾은 소수로 나누어 봄
+                counter++;
+                if (n % prime[i] == 0)                  // 나누어떨어지면 소수가 아님
+                    break;                              // 더 이상의 반복은 불필요
+            }
+            if (ptr == i)                               // 마지막까지 나누어떨어지지 않음
+                prime[ptr++] = n;                       // 소수로 배열에 저장
         }
-        if (n % w != 0)
-            System.out.println();        // 줄바꿈
+
+        for (int i = 0; i < ptr; i++)                   // 찾은 ptr개의 소수를 출력
+            System.out.println(prime[i]);
+
+        System.out.println("나눗셈을 수행한 횟수 : " + counter);
+        System.out.println("prime = " + prime);
     }
 }
