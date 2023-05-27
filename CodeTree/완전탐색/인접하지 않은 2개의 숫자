@@ -1,0 +1,26 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static int MAX_N = 100;
+    public static int n;
+    public static int[] arr = new int[MAX_N];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        for (int i=0; i<n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int currMax = 0;
+        
+        // i, j가 인접하지 않도록 범위 설정에 주의
+        for (int i=0; i<n-2; i++) {
+            for (int j=i+2; j<n; j++) {  
+                currMax = Math.max(currMax, arr[i]+arr[j]);
+            }
+        }
+        System.out.println(currMax);
+    }   
+}
