@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class Main {
+    public static int MAX_N = 100;
+    public static int n;
+    public static int[] arr = new int[MAX_N];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        for (int i=0; i<n; i++){
+            arr[i] = sc.nextInt();
+        }
+
+        int cnt = 0;
+        for (int i=0; i<n; i++) {  // 구간 시작점
+            for (int j=0; j<n; j++) {  // 구간 종료점
+                
+                // [i, j] 내 원소의 합 구하기
+                int sumVal = 0;
+                for (int k=i; k<=j; k++) {  // 시작~종료 범위 내 값
+                    sumVal += arr[k];
+                }
+
+                // 평균 구하기
+                double avg = (double) sumVal / (j-i+1);
+
+                // 구간 내에 평균과 동일한 원소가 있을 때 개수 세기 //
+                boolean checker = false;  // *굳이 checker를 쓰는 이유: {1, 1, 1} 구간이 주어졌을 때 cnt는 +3이 아니라 +1이 되어야 함
+
+                for (int k=i; k<=j; k++) {
+                    if (arr[k] == avg) {
+                        checker = true;
+                    }
+                }
+
+                if(checker) {
+                    cnt++;
+                }
+            }
+        }
+        System.out.println(cnt);
+
+    }
+}
