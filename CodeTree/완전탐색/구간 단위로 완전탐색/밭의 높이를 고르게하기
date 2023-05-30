@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+    public static int n, h, t;
+    public static int MAX_N = 100;
+    public static int[] arr = new int[MAX_N];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        h = sc.nextInt();
+        t = sc.nextInt();
+
+        // 밭 정보 입력
+        for (int i=0; i<n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        // 모든 T 크기의 구간에 대해 H 높이로 맞출 때 드는 비용 계산
+        int minCost = 20000;
+        for (int i=0; i<=n-t; i++){  // 구간 시작점
+            int cost = 0;
+            for (int j=i; j<i+t; j++) {  // 구간 
+                cost += Math.abs(arr[j]-h);
+            }
+            minCost = Math.min(minCost, cost);
+        }
+
+        // 최소 비용 입력 
+        System.out.println(minCost);
+    }
+}
