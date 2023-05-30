@@ -1,0 +1,52 @@
+import java.util.Scanner;
+import java.util.LinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        LinkedList<Integer> l = new LinkedList<>();
+
+        int n = sc.nextInt();
+        while (n-->0) {
+            String ord = sc.next();
+            
+            // 연결 리스트의 입력은 add 
+            if (ord.equals("push_front")) {
+                int num = sc.nextInt();
+                l.addFirst(num);
+            } else if (ord.equals("push_back")) {
+                int num = sc.nextInt();
+                l.addLast(num);
+            } 
+
+            // 연결 리스트의 pop은 poll
+            else if (ord.equals("pop_front")) {
+                System.out.println(l.pollFirst());
+            } else if (ord.equals("pop_back")) {
+                System.out.println(l.pollLast());
+            }
+
+            // 연결리스트의 크기 size
+            else if (ord.equals("size")) {
+                System.out.println(l.size());
+            } 
+            
+            // 비어있는지 확인 empty: true/false
+            else if (ord.equals("empty")) {
+                if (l.isEmpty()) {
+                    System.out.println(1);
+                } else {
+                    System.out.println(0);
+                }
+            }
+            
+            // 출력 peek
+            else if (ord.equals("front")) {
+                System.out.println(l.peekFirst());
+            } else if (ord.equals("back")) {
+                System.out.println(l.peekLast());
+            }
+        }
+
+    }
+}
