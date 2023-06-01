@@ -1,0 +1,46 @@
+import java.util.Scanner;
+import java.util.Deque;
+import java.util.ArrayDeque;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Deque<Integer> dq = new ArrayDeque<>();
+    
+        int n = sc.nextInt();
+
+        while (n-- > 0) {
+            String ord = sc.next();
+            if (ord.equals("push_front")) {
+                int A = sc.nextInt();
+                dq.addFirst(A);
+            } 
+            else if (ord.equals("push_back")) {
+                int A = sc.nextInt();
+                dq.addLast(A);
+            } 
+            else if (ord.equals("pop_front")) {
+                System.out.println(dq.pollFirst());
+            } 
+            else if (ord.equals("pop_back")) {
+                System.out.println(dq.pollLast());
+            } 
+            else if (ord.equals("size")) {
+                System.out.println(dq.size());
+            } 
+            else if (ord.equals("empty")) {
+                if (dq.isEmpty()) {
+                    System.out.println(1);
+                } else {
+                    System.out.println(0);
+                }
+            } 
+            else if (ord.equals("front")) {
+                System.out.println(dq.peekFirst());
+            } 
+            else if (ord.equals("back")) {
+                System.out.println(dq.peekLast());
+            }
+        }
+    }
+}
