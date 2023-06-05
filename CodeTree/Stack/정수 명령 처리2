@@ -1,0 +1,41 @@
+import java.util.Scanner;
+import java.util.Queue;
+import java.util.LinkedList;
+
+public class Main {
+    public static void main(String[] args) {
+        Queue<Integer> q = new LinkedList<>();
+
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        while (n-- > 0) {
+            String ord = sc.next();
+            
+            if (ord.equals("push")) {
+                int A = sc.nextInt();
+                q.add(A);
+            } 
+            
+            // pop과 달리 큐에서 가장 앞에 있는 정수를 뺀다
+            else if (ord.equals("pop")) {
+                System.out.println(q.poll());  // *poll()
+            } 
+            
+            else if (ord.equals("size")) {
+                System.out.println(q.size());
+            } 
+            
+            else if (ord.equals("empty")) {
+                if (q.isEmpty()) {
+                    System.out.println(1);
+                } else {
+                    System.out.println(0);
+                }
+            } 
+            
+            else if (ord.equals("front")) {
+                System.out.println(q.peek());
+            }
+        }
+    }
+}
