@@ -1,0 +1,74 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    
+    public static int n, r, c;
+    public static final int MAX_N = 200;
+    public static int[][] grid = new int[MAX_N][MAX_N];
+    public static int[][] nGrid = new int[MAX_N][MAX_N];
+
+    // dr, rc: 상, 하, 좌, 우
+    public static final int[] dr = new int[]{-1, 1, 0, 0};
+    public static final int[] dc = new int[]{0, 0, -1, 1};
+
+    // inRange
+    public static boolean inRange(int r, int c) {
+        return 0<=r && r<n && 0<=c && c<n;
+    }
+
+    // *gravity: 아래에서부터 채워올라가기
+    public static void gravity() {
+        for (int c=0; c<n; c++) { 
+            int row = n;  // *기준이 되어줄 변수 정의
+            for (int r=n-1; r>-1; r--) {
+                if (grid[r][c] != 0) {
+                    row--;
+                    nGrid[row][c] = grid[r][c];
+                }
+            }
+        }
+        grid = nGrid;
+    }
+
+    // explosion
+    public static void explosion(int r, int c, int power) {
+        for (int i=0; i<4; i++) {
+            for (int p=0; p<power; p++) {
+                if (inRange(r+dr[i]*p, c+dc[i]*p)) {
+                    grid[r+dr[i]*p][c+dc[i]*p] = 0;
+                }
+            }
+        }
+
+        gravity();
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        // grid 생성
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<n ;j++) {
+                grid[i][j] = sc.nextInt();
+            }
+        }
+
+        r = sc.nextInt();
+        c = sc.nextInt();
+        
+        if (grid[r-1][c-1] == 0) {
+            System.out.println(0);
+        } else {
+            explosion(r-1, c-1, grid[r-1][c-1]);
+
+            for (int i=0; i<n; i++) {
+                for (int j=0; j<n; j++) {
+                    System.out.print(grid[i][j]+" ");
+                }
+                System.out.println();
+            }
+        }
+    }
+}
