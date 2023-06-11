@@ -1,0 +1,51 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static int n, m, k;
+    public static final int MAX_N = 100;
+    public static int[][] board = new int[MAX_N][MAX_N];
+
+    // canGo
+    public static int canGo(int m, int k) {
+        int row = 0;
+        while (row != n) {
+            for (int i=k-1; i<k-1+m; i++) {
+                if (board[row][i] == 1) {
+                    return row-1;
+                }
+            }
+            row++;
+        }
+        return n-1;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+        k = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<n; j++) {
+                board[i][j] = sc.nextInt();
+            }
+        }
+
+        int row = canGo(m, k);
+
+        for (int i=k-1; i<k-1+m; i++) {
+            board[row][i] = 1;
+        }
+
+        // 확인용 출력
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<n; j++) {
+                System.out.print(board[i][j]+" ");
+            }
+            System.out.println();
+        }
+
+
+    }
+}
