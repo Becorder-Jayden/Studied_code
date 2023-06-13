@@ -1,0 +1,58 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Main {
+    public static int k, n;
+    public static ArrayList<Integer> al = new ArrayList<>();
+
+    // 연속된 수인지 판별
+    public static boolean isSeq() {
+        boolean tf = false;  // 3번 이상 연속되는 경우
+
+        for (int i=0; i<n-2; i++) {
+            int idxNum = al.get(i);
+            int seqCnt = 0;
+
+            for (int j=1; j<3; j++) 
+                if (idxNum == al.get(i+j))
+                    seqCnt++;
+
+            if (seqCnt >= 2) 
+                tf = true;
+        }
+
+        return tf;
+    }
+
+    // 조합을 만들어보자
+    public static void comb(int numPos) {
+
+        // 출력 조건 설정
+        if (al.size() == n) {
+            
+            // 연속된 경우 제외
+            if (isSeq())
+                return;
+
+            // 보기 좋게 출력
+            for (int j=0; j<n; j++) 
+                System.out.print(al.get(j)+" ");
+            System.out.println();
+            return;
+        }
+
+        for (int i=1; i<=k; i++) {
+            al.add(i);
+            comb(i+1);
+            al.remove(al.size()-1);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);    
+        k = sc.nextInt();
+        n = sc.nextInt();
+
+        comb(0);
+    }
+}
