@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_K = 4;
+    public static final int MAX_N = 12;
+
+    public static int n, m, k;
+    public static int[] nums = new int[MAX_N];
+    public static int[] pieces = new int[MAX_K];
+
+    public static int ans;
+
+    public static int calc() {
+        int score = 0;  // 점수를 0으로 설정
+
+        // 반환할 점수계산
+        for(int i=0; i<k; i++) {
+            score += (pieces[i] >= m ? 1 : 0);  // 점수가 m보다 크면 +1, 아니면 pass
+        }
+        
+        return score;
+    }
+
+    public static void findMax(int cnt) {
+        
+        // 답이 최대값을 갖도록 설정
+        ans = Math.max(ans, calc());
+
+        // 재귀함수의 종료 조건 설정
+        if (cnt == n) {
+            return;
+        }
+
+        for (int i=0; i<k; i++) {
+
+            // 이미 결승점에 도달한 말은 움직임에 대해 계산할 필요가 없으므로 continue
+            if (pieces[i] >= m) {
+                continue;
+            }
+
+            pieces[i] += nums[cnt];
+            findMax(cnt + 1);
+            pieces[i] -= nums[cnt];
+        }
+    }
+    
+    public static void main(String[] args) {
+    
+        Scanner sc= new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+        k = sc.nextInt();
+        for (int i=0; i<n; i++) {
+            nums[i] = sc.nextInt();
+        }
+
+        for (int i=0; i<k; i++) {
+            pieces[i] = 1;
+        }
+
+        findMax(0);
+
+        System.out.println(ans);
+    }
+}
