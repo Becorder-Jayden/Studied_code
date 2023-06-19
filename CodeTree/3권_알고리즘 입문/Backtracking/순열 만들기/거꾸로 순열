@@ -1,0 +1,51 @@
+// 순열의 경우 visited 처리를 통해 중복을 방지한다 
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class Main {
+    public static int n; 
+    public static int MAX_N = 8;
+    public static ArrayList<Integer> al = new ArrayList<>();
+    public static boolean[] visited = new boolean[MAX_N+1];
+
+    public static void printAl() {
+
+        for (int i=0; i<al.size(); i++) {
+            System.out.print(al.get(i)+" ");
+        }
+        System.out.println();
+    }
+
+    public static void revPerm(int currNum) {
+        
+        if (currNum == 0) {
+            printAl();
+            return;
+        }
+
+        for (int i=n; i>0; i--) {
+            
+            // *visited 처리 
+            if (visited[i] == true) {
+                continue;
+            }
+            
+            visited[i] = true;
+            al.add(i);
+
+            revPerm(currNum-1);
+            
+            al.remove(al.size()-1);
+            visited[i] = false;
+        }
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        revPerm(n);
+    }
+}
