@@ -1,0 +1,62 @@
+import java.util.Scanner;
+
+public class Main {
+    public static int n, k;
+    public static final int MAX_N = 100;
+    public static int ans = 0;
+    
+    // 상하좌우
+    public static int[] dx = new int[]{0, 0, -1, 1};
+    public static int[] dy = new int[]{-1, 1, 0, 0};
+
+    public static int[][] graph = new int[MAX_N][MAX_N];
+    public static boolean[][] visited = new boolean[MAX_N][MAX_N];
+
+    // 이동여부 판단하기: *inRange, *canGo 나눠서 전개하기    
+    public static boolean inRange(int x, int y) {
+        return 0<=x && x<n && 0<=y && y<n;
+    }
+    public static boolean canGo(int x, int y) {
+        return inRange(x, y) && visited[x][y] == false && graph[x][y] == 0;
+    }
+
+    public static void BFS(int x, int y) {
+
+        for (int i=0; i<4; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            if (canGo(nx, ny)) {
+                visited[nx][ny] = true;
+                ans++; 
+                BFS(nx, ny);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        n = sc.nextInt();
+        k = sc.nextInt();
+        
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<n; j++) {
+                graph[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i=0; i<k; i++) {
+            int r = sc.nextInt();
+            int c = sc.nextInt();
+
+            if (!visited[r-1][c-1]) {
+                ans++;
+                visited[r-1][c-1] = true;
+            }
+            BFS(r-1, c-1);
+        }
+
+        System.out.println(ans);
+    }
+}
