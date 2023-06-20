@@ -45,20 +45,10 @@ public class Main {
 
         DFS(1, 1);
 
-        // System.out.println(n+" "+m);
-
         if (visited[n][m] == true) {
             System.out.println(1);
         } else {
             System.out.println(0);
         }
-
-        // // 확인
-        // for (int i=1; i<=n; i++) {
-        //     for (int j=1; j<=m; j++) {
-        //         System.out.print(visited[i][j] +" ");
-        //     }
-        //     System.out.println();
-        // }
     }
 }
