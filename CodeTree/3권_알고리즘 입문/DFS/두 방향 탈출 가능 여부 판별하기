@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static int n, m;
+    public static int MAX_N = 100;
+    public static int MAX_M = 100;
+
+    // 아래, 오른쪽
+    public static int[] dx = new int[]{0, 1};
+    public static int[] dy = new int[]{1, 0};
+
+    public static int[][] graph = new int[MAX_N+1][MAX_N+1];
+    public static boolean[][] visited = new boolean[MAX_N+1][MAX_N+1];
+
+    public static boolean inRange(int x, int y) {
+        return 1<=x && x< MAX_M+1 && 1<=y && y<MAX_N+1;
+    }
+
+    public static void DFS(int x, int y) {
+
+        visited[y][x] = true;
+
+        for (int i=0; i<2; i++) {
+            int nx = x + dx[i];
+            int ny = y + dy[i];
+
+            if (inRange(nx, ny) && visited[ny][nx] == false && graph[ny][nx] == 1) {
+                DFS(nx, ny);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        // 주어진 값 입력
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=m; j++) {
+                graph[i][j] = sc.nextInt();
+            }
+        }
+
+        DFS(1, 1);
+
+        // System.out.println(n+" "+m);
+
+        if (visited[n][m] == true) {
+            System.out.println(1);
+        } else {
+            System.out.println(0);
+        }
+
+        // // 확인
+        // for (int i=1; i<=n; i++) {
+        //     for (int j=1; j<=m; j++) {
+        //         System.out.print(visited[i][j] +" ");
+        //     }
+        //     System.out.println();
+        // }
+    }
+}
