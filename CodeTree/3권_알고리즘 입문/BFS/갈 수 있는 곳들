@@ -54,6 +54,7 @@ public class Main {
                 ans++;
                 visited[r-1][c-1] = true;
             }
+            
             BFS(r-1, c-1);
         }
 
