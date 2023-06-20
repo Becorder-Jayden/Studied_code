@@ -1,0 +1,46 @@
+import java.util.Scanner; 
+import java.util.ArrayList;
+
+public class Main {
+    public static final int MAX_NUM = 1000;
+    public static int n, m;
+
+    public static int[][] graph = new int[MAX_NUM+1][MAX_NUM+1];
+    public static boolean[] visited = new boolean[MAX_NUM+1];
+    public static int vertexCnt = 0;    
+
+    public static void DFS(int vertex) {
+
+        // 해당 정점에서 이어져있는 모든 정점을 탐색
+        for (int currV=1; currV<=n; currV++) {
+
+            // 아직 간선이 존재하고, 방문한 적이 없는 정점에 대해서 탐색 진행
+            if (graph[vertex][currV] == 1 && !visited[currV]) {
+                visited[currV] = true;
+                vertexCnt++;
+                DFS(currV);
+            }
+        }
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        n = sc.nextInt();  // 정점의 개수
+        m = sc.nextInt();  // 간선의 개수
+
+        while (m-->0) {
+            int v1 = sc.nextInt();
+            int v2 = sc.nextInt();
+
+            graph[v1][v2] = 1;
+            graph[v2][v1] = 1;
+        }
+
+        visited[1] = true;
+        DFS(1);
+
+        System.out.println(vertexCnt);
+    }
+}   
