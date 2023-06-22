@@ -1,0 +1,105 @@
+import java.util.Scanner;
+import java.util.Queue;  // 큐 사용_1: Queue
+import java.util.LinkedList;  // 큐 사용_2: LinkedList
+
+// *좌표를 저장하는 Pair 클래스 생성
+class Pair {
+    int x, y;
+
+    public Pair(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+public class Main {
+    
+    public static final int INT_MAX = Integer.MAX_VALUE;
+    public static final int MAX_N = 100;
+    public static final int MAX_M = 100;
+    
+    public static int n, m; 
+    
+    public static int[][] g = new int[MAX_N][MAX_M];
+    
+    // BFS에 필요한 변수
+    public static int[][] step = new int[MAX_N][MAX_M];  // 시작점으로부터 거리를 나타내는 그래프
+    public static boolean[][] visited = new boolean[MAX_N][MAX_M];  // 방문 여부를 나타내는 그래프
+    public static Queue<Pair> q = new LinkedList<>();  // *큐 구조 사용 
+
+    public static int ans = INT_MAX;
+
+
+    public static boolean inRange(int x, int y) {
+        return 0<=x && x<n && 0<=y && y<m;
+    }
+
+
+    public static boolean canGo(int x, int y) {
+        return inRange(x, y) && !visited[x][y] && (g[x][y] == 1) ;  
+    }
+
+
+    // *push: 큐에 새로운 위치를 추가하고 방문 여부를 표시, 시작점으로부터 최단거리 값 계산
+    public static void push(int x, int y, int s) {
+        q.add(new Pair(x, y)); 
+        visited[x][y] = true; 
+        step[x][y] = s;
+    }
+
+
+    // BFS를 통해 최소 이동 횟수 구하기
+    public static void findMin() {
+
+        // *큐에서 남은 것이 없을 때까지 반복
+        while (!q.isEmpty()) {
+
+            // 큐에서 가장 먼저 들어온 원소 빼기
+            Pair curr = q.poll();  // *poll 메서드를 통해 큐 구조의 앞 원소 빼기
+            int x = curr.x;
+            int y = curr.y;
+
+            // 네 방향 탐색
+            int[] dx = new int[]{0, 0, -1, 1};
+            int[] dy = new int[]{-1, 1, 0, 0};
+
+            for (int i=0; i<4; i++) {
+                int nx = x + dx[i];
+                int ny = y + dy[i];
+
+                if (canGo(nx, ny)) {
+
+                    // push 재귀형식으로 진행, *현재 step+1 입력
+                    push(nx, ny, step[x][y]+1);
+                }
+            }
+        }
+
+        if (visited[n-1][m-1]) {
+            ans = step[n-1][m-1];
+        }
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        // 뱀의 위치 입력
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<m; j++) {
+                g[i][j] = sc.nextInt();
+            }
+        }
+
+        push(0, 0, 0);
+        findMin();
+
+        if (ans == INT_MAX) {
+            ans = -1;
+        }
+
+        System.out.println(ans); 
+    }
+}
