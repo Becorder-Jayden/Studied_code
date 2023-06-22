@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class Main {
+    public static int n;
+    public static final int MAX_N = 45;
+
+    public static int[] a = new int[MAX_N+1];
+
+    public static void main(String[] args) {
+        
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        a[1] = 1;
+        a[2] = 1;
+
+        for (int i=3; i<=n; i++) {
+            a[i] = a[i-1] + a[i-2];
+        }
+
+        System.out.println(a[n]);
+    }
+}
