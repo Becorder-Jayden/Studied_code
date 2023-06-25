@@ -1,3 +1,4 @@
+// O(N^2) 풀이 방법
 import java.util.Scanner;
 
 public class Main {
@@ -35,7 +36,7 @@ public class Main {
 
                 // 기준값이 기준값 이전에 위치한 값보다 크다면, 이전값의 dp보다 1증가 시킴 
                 if (a[j] < a[i]) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);  // *dp[j] + 1
+                    dp[i] = Math.max(dp[i], dp[j] + 1);  // *dp원리 적용: (dp[i], dp[j]+1)을 비교
                 }
             }
         }
