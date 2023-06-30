@@ -13,7 +13,7 @@ public class Main {
     // init: *dp의 값에 최상단 행, 최좌측 열의 값을 입력 
     public static void init() {
         
-        // 시작점의 경우 np[0][0] = num[0][0]으로 초기값 설정?
+        // 시작점의 경우 np[0][0] = num[0][0]으로 초기값 설정
         dp[0][0] = num[0][0];  
 
         // 최좌측 열의 초기값 설정
