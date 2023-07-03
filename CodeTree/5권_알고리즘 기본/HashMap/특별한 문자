@@ -1,0 +1,32 @@
+import java.util.Scanner;
+import java.util.HashMap; 
+
+public class Main {
+    public static HashMap<Character, Integer> freq = new HashMap<>();  // *Character
+    public static String str;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);        
+        str = sc.next();
+
+        // 해시에 char 값을 입력
+        for (int i=0; i<str.length(); i++) {
+            if (!freq.containsKey(str.charAt(i))) {
+                freq.put(str.charAt(i), 1);
+            } else {
+                freq.put(str.charAt(i), freq.get(str.charAt(i))+1);
+            }
+        }
+
+        // value 값이 1에 해당할 경우 출력하고 종료
+        for (int i=0; i<str.length(); i++) {
+            if (freq.get(str.charAt(i)) == 1) {
+                System.out.println(str.charAt(i));
+                System.exit(0);  // *System.exit(0): 프로그램을 종료 cf. 1을 기입하면 비정상적인 종료를 나타냄
+            }
+        }
+
+        // 그렇지 않을 경우 None 출력
+        System.out.print("None"); 
+    }
+}
