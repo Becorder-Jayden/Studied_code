@@ -1,0 +1,42 @@
+import java.util.Scanner;
+import java.util.HashMap;
+
+public class Main {
+    public static final int MAX_N = 100000;
+    public static int n, m;
+
+    public static int[] arr = new int[MAX_N];
+    public static HashMap<Integer, Integer> freq = new HashMap<>();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();  // 원소의 수 
+        m = sc.nextInt();  // 질의의 수
+
+        for (int i=0; i<n; i++) {
+            arr[i] = sc.nextInt();  // 입력된 값을 arr에 저장
+        }
+
+        // 각 숫자가 몇번 나왔는지 hashmap에 기록
+        for (int i=0; i<n; i++) {
+            if(!freq.containsKey(arr[i])) {  // arr[i]키에 대한 값이 없다면 1을 입력
+                freq.put(arr[i], 1);
+            }
+            else {
+                freq.put(arr[i], freq.get(arr[i])+1);  // arr[i]키에 대한 값이 있다면 기존의 값 + 1
+            }
+        }
+
+        // m번의 질문에 대해 몇번 나왔는지 응답 
+        for (int i=0; i<m; i++) {
+            int num = sc.nextInt();
+
+            if (!freq.containsKey(num)) {  // num에 대한 값이 없을 때, 0을 출력
+                System.out.print(0+" ");
+            } else {
+                System.out.print(freq.get(num)+" ");  // num에 대한 값이 있을 때, 해당 값을 출력
+            }
+        }
+
+    }
+}
