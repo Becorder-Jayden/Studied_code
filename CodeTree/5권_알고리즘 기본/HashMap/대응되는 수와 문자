@@ -1,0 +1,35 @@
+import java.util.Scanner;
+import java.util.HashMap;
+
+public class Main {
+    public final static int MAX_N = 100000;
+
+    public static int n, m;
+    public static String[] words = new String[MAX_N+1]; 
+    public static HashMap<String, Integer> stringToNum = new HashMap<>(); 
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        for (int i=1; i<=n; i++) {
+            words[i] = sc.next();
+            stringToNum.put(words[i], i);  // *containsKey를 사용하지 않아도 되나보다
+        }
+
+        while (m-->0) {
+            String key = sc.next();
+
+            // 입력된 값이 숫자일 때는 array에 저장한 문자를 출력
+            if ('0' <= key.charAt(0) && key.charAt(0) <= '9') {
+                System.out.println(words[Integer.parseInt(key)]);
+            }
+
+            // 입력된 값이 문자일 때 hashmap에 기록된 대응된 숫자를 출력
+            else {
+                System.out.println(stringToNum.get(key));
+            }
+        }
+    }
+}

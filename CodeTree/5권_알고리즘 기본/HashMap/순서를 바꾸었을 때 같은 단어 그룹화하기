@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import java.util.HashMap; 
+import java.util.Arrays;
+
+public class Main {
+    public static int n; 
+    public static HashMap<String, Integer> wordMap = new HashMap<>();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        while (n-->0) {
+            String inputStr = sc.next();
+
+            // *입력된 문자를 정렬한 새로운 문자 생성
+            char tempArray[] = inputStr.toCharArray();  // *toCharArray(): 입력된 문자를 나타내는 char 배열로 변환, sort() 정렬이 가능하다
+            Arrays.sort(tempArray);
+            inputStr = new String(tempArray);
+            
+            if (!wordMap.containsKey(inputStr)) {
+                wordMap.put(inputStr, 1);
+            }
+            else {
+                wordMap.put(inputStr, wordMap.get(inputStr)+1);
+            }
+        }    
+
+        int ans = 0; 
+        for (String key : wordMap.keySet()) {  // *keySet(): 해시타입에서 모든 key를 가져옴
+            ans = Math.max(ans, wordMap.get(key)); 
+        }    
+
+        System.out.println(ans);
+    }
+}
