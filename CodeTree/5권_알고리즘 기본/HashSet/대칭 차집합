@@ -4,7 +4,7 @@ import java.util.HashSet;
 public class Main {
     public final static int MAX_NUM = 200000;
 
-    public static int n, m;
+    public static int n, m, ans;
 
     public static HashSet<Integer> hs = new HashSet<>();
     public static int[] arr1 = new int[MAX_NUM];
@@ -25,7 +25,7 @@ public class Main {
             arr2[i] = x;
         }
 
-        int ans = n + m;  // 초기 ans: n+m 값에서 시작
+        ans = n + m;  // 초기 ans: n+m 값에서 시작
 
         for (int i=0; i<m; i++) {
             if (hs.contains(arr2[i])) {
