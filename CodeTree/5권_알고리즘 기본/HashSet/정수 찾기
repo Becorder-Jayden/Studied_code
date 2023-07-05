@@ -1,0 +1,24 @@
+import java.util.Scanner;
+import java.util.HashSet;
+
+public class Main {
+    public final static int MAX_NUM = 100000;
+    public static int n, m;
+    
+    public static HashSet<Integer> hs = new HashSet<>();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        n = sc.nextInt();
+        
+        for (int i=0; i<n; i++) {
+            hs.add(sc.nextInt());
+        }
+
+        m = sc.nextInt(); 
+        for (int i=0; i<m; i++) {
+            int num = sc.nextInt(); 
+            System.out.println(hs.contains(num) ? 1 : 0);  // *삼항연산자를 이용하면 깔끔하게 정리
+        }
+    }
+}
