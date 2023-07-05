@@ -1,0 +1,36 @@
+// HashSet 
+// 	해싱을 기반으로 데이터를 관리해주는 자료구조 O(1)
+//	TreeSet보다 속도가 빠르지만, 순서에는 전혀 관심이 없음
+
+import java.util.Scanner;
+import java.util.HashSet;  // HashSet
+
+public class Main {
+
+    public static int n;
+    public static HashSet<Integer> hs = new HashSet<>();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            String command = sc.next();
+            int num = sc.nextInt(); 
+
+            if (command.equals("add")) {
+                hs.add(num);  // 데이터 입력
+            } 
+            else if (command.equals("remove")) {
+                hs.remove(num);  // 데이터 제거
+            }
+            else if (command.equals("find")) {  // *find를 진행할때는 존재 여부를 확인
+                if (hs.contains(num)) {
+                    System.out.println("true");
+                } else {
+                    System.out.println("false");
+                }
+            }
+        }
+    }
+}
