@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+import java.util.TreeMap;
+import java.util.Iterator;
+import java.util.Map.Entry;
+
+
+public class Main {
+    public static int n;
+    public static TreeMap<String, Integer> tm = new TreeMap<>();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        for(int i=0;i<n; i++) {
+            String word = sc.next();
+        
+            if (!tm.containsKey(word)) {  // *containsKey()로 확인
+                tm.put(word, 1);
+            } else {
+                tm.put(word, tm.get(word)+1);
+            }
+        }
+
+        // 순회
+        Iterator<Entry<String, Integer>> it = tm.entrySet().iterator();
+        while (it.hasNext()) {
+            Entry<String, Integer> entry = it.next();  // *순회안에서 쌍 구하기
+            
+            String word = entry.getKey();
+            int cnt = entry.getValue();
+            double ratio = (double) cnt/n * 100;
+            
+            System.out.printf("%s %.4f\n", word, ratio);
+        }
+    }
+}

@@ -1,0 +1,54 @@
+import java.util.Scanner;
+import java.util.TreeMap;   // TreeMap
+import java.util.Iterator;  // Iterator 
+import java.util.Map.Entry;  // Entry
+
+
+public class Main {
+    public static int n;
+    public static TreeMap<Integer, Integer> tm = new TreeMap<>();  // *TreeMap 선언
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        n = sc.nextInt();
+        
+        for (int i=0; i<n; i++) {
+            String command = sc.next();
+            
+            if (command.equals("add")) {
+                int k = sc.nextInt();
+                int v = sc.nextInt();
+                
+                tm.put(k, v);  // *(k, v) 쌍 입력 
+            }
+            else if (command.equals("remove")) {
+                int k = sc.nextInt();
+                
+                tm.remove(k);  // *k 기준 제거
+            }
+            else if (command.equals("find")) {
+                int k = sc.nextInt();
+                if (!tm.containsKey(k)) {
+                    System.out.println("None");
+                } else {
+                    System.out.println(tm.get(k));  // k를 기준으로 값 탐색
+                }
+            }
+            else {
+                if (tm.isEmpty()) {
+                    System.out.println("None");
+                    continue;
+                }
+
+                // Itegerator를 통한 순회
+                // tm: TreeMap 객체, entrySet(): 모든 (key, value)쌍을 반환, iterator(): 반복자
+                Iterator<Entry<Integer, Integer>> it = tm.entrySet().iterator();  
+                while (it.hasNext()) {
+                    Entry<Integer, Integer> entry = it.next();
+                    System.out.print(entry.getValue() + " ");
+                }
+                System.out.println();
+            }
+        }
+    }
+}
