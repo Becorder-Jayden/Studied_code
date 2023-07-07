@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class Main {
+    public final static int INT_MAX = Integer.MAX_VALUE;
+    public final static int MAX_N = 100000; 
+
+    public static int n ;
+    public static int[] queries = new int[MAX_N];
+    public static TreeSet<Integer> ts = new TreeSet<>();
+
+    public static int ans = INT_MAX;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        n = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            queries[i] = sc.nextInt();
+        }
+        
+        ts.add(0);
+
+        for (int i=0; i<n; i++) {
+            if (ts.higher(queries[i]) != null) {
+                ans = Math.min(ans, ts.higher(queries[i]) - queries[i]);
+            }
+
+            // ts에 이미 0이 들어가 있기 때문에 null 검증이 불필요: 0보다 작은 값이 들어가지 않음
+            ans = Math.min(ans, queries[i] - ts.lower(queries[i])); 
+
+            ts.add(queries[i]);
+            System.out.println(ts+" "+ans);  
+        }
+    }
+}
