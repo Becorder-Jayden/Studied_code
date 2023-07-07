@@ -1,0 +1,71 @@
+// Pair 쌍의 정렬
+
+import java.util.Scanner;
+import java.util.TreeSet;
+
+class Pair implements Comparable<Pair> {
+    int x, y;
+
+    public Pair(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    @Override
+    public int compareTo(Pair p) {  // {x, y} 순으로 오름차순 정렬
+        if (this.x != p.x) {            // x값이 다를 때
+            return this.x - p.x;            // x를 기준으로 오름차순 정렬 진행 
+        } else {                        // x값이 같다면
+            return this.y - p.y;            // y값을 기준으로 오름차순 정렬 진행
+        }
+    }
+}
+
+public class Main {
+    public final static int MAX_NUM = 100000; 
+
+    public static int n, m;
+    public static Pair[] points = new Pair[MAX_NUM];
+    public static Pair[] queries = new Pair[MAX_NUM];
+
+    public static TreeSet<Pair> ts = new TreeSet<>();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        n = sc.nextInt();
+        m = sc.nextInt(); 
+
+        for (int i=0; i<n; i++) {
+            int x = sc.nextInt(); 
+            int y = sc.nextInt();
+            points[i] = new Pair(x, y);
+        }
+
+        for (int i=0; i<m; i++) {
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+            queries[i] = new Pair(x, y);
+        }
+
+        // treeset에 점 입력
+        for (int i=0; i<n; i++) {
+            ts.add(points[i]); 
+        }
+
+        // 조건에 맞는 점 찾기
+        for (int i=0; i<m; i++) {
+            
+            // 점을 찾을 수 없을 때 (-1 -1) 출력
+            if (ts.ceiling(queries[i]) == null) {
+                System.out.println("-1 -1");
+            } 
+
+            // 점을 찾을 수 있을 때 (x, y) 출력
+            else {
+                Pair p = ts.ceiling(queries[i]);
+                System.out.println(p.x+" "+p.y);
+            }
+        }
+    }
+}

@@ -1,0 +1,82 @@
+import java.util.Scanner;
+import java.util.TreeSet;
+
+class Pair implements Comparable<Pair> {
+    int prob, lev;
+
+    public Pair (int prob, int lev) {
+        this.prob = prob;
+        this.lev = lev; 
+    }
+
+    @Override
+    public int compareTo(Pair p) {
+        if (this.lev != p.lev) {
+            return this.lev - p.lev;  // 난이도 기준 오름차순 정렬
+        } else {
+            return this.prob - p.prob;  // 문제 번호 오름차순 정렬 
+        }
+    }
+}
+
+public class Main {
+    public final static int MAX_N = 100000; 
+    public final static int MAX_M = 10000; 
+
+    public  static int n, m;
+    
+    public static TreeSet<Pair> ts = new TreeSet<>();
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt(); 
+
+        for (int i=0; i<n; i++) {
+            int p = sc.nextInt();  // 문제 번호
+            int l = sc.nextInt();  // 난이도
+
+            Pair pair = new Pair(p, l); 
+            ts.add(pair);
+        }
+
+        m = sc.nextInt(); 
+        
+        for (int i=0; i<m; i++) {
+            String command = sc.next();
+
+            if (command.equals("rc")) {
+                int x = sc.nextInt();
+
+                if (x == 1) {  
+                    // 난이도가 가장 높은 문제의 번호 출력 
+                    Pair p = ts.last();
+                    System.out.println(p.prob);
+
+                } else {  // x == -1
+                    // 난이도가 가장 낮은 문제의 번호 출력
+                    Pair p = ts.first();
+                    System.out.println(p.prob);
+                }
+            }
+
+            else if (command.equals("ad")) {
+                int prob = sc.nextInt();  
+                int lev = sc.nextInt();
+
+                Pair p = new Pair(prob, lev);
+                
+                // 난이도가 lev인 문제 번호 prob을 추가
+                ts.add(p);
+            }
+            else if (command.equals("sv")) {
+                int prob = sc.nextInt(); 
+                int lev = sc.nextInt();
+
+                Pair p = new Pair(prob, lev);
+
+                // 난이도가 lev인 문제번호 prob을 제거
+                ts.remove(p);
+            }
+        }
+    }
+}
