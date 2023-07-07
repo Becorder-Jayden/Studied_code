@@ -30,7 +30,7 @@ public class Main {
             ans = Math.min(ans, queries[i] - ts.lower(queries[i])); 
 
             ts.add(queries[i]);
-            System.out.println(ts+" "+ans);  
+            System.out.println(ans);  
         }
     }
 }

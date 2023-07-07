@@ -1,0 +1,36 @@
+// TreeSet의 내림차순 정렬 
+// add(-x): 값을 음수를 추가해서 내림차순 정렬해준다
+
+import java.util.Scanner; 
+import java.util.TreeSet; 
+
+public class Main {
+    public final static int MAX_NUM = 100000;
+    
+    public static int n, k;
+    public static int[] queries = new int[MAX_NUM];
+    public static TreeSet<Integer> ts = new TreeSet<>(); 
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        n = sc.nextInt(); 
+        k = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            int x = sc.nextInt();
+            ts.add(-x);  // *음수를 입력
+        }
+
+        int cnt = 0;
+        // *Iterator를 이용해 앞에서부터 값을 추출할 수 있다 
+        for (int num : ts) {
+            System.out.print(-num+" ");
+
+            cnt ++; 
+            if (cnt == k) {
+                break;
+            }
+        }
+    }
+}
