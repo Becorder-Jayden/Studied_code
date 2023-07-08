@@ -1,0 +1,31 @@
+import java.util.Scanner;
+import java.util.TreeSet;
+
+public class Main {
+    public final static int MAX_NUM = 100000;
+
+    public static int n, m;
+    public static int[] queries = new int[MAX_NUM];  // *배열에 담아두고 사용하는 습관 들이자
+
+    public static TreeSet<Integer> ts = new TreeSet<>();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            queries[i] = sc.nextInt();
+        }
+
+        for (int i=1; i<=m; i++) {
+            ts.add(i);
+        }
+
+        for (int i=0; i<n; i++) {
+            ts.remove(queries[i]);
+            System.out.println(ts.last());
+        }
+    }
+}

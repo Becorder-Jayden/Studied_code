@@ -1,0 +1,81 @@
+import java.util.Scanner;
+import java.util.TreeSet;  // TreeSet: 균형잡힌 이진트리구조, O(longN)
+
+public class Main {
+    public static int n;
+
+    public static TreeSet<Integer> ts = new TreeSet<>();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        n = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            String command = sc.next();
+            int x;
+
+            if (command.equals("add")) {
+                x = sc.nextInt();
+                ts.add(x);  // add(x): 값 입력 
+            }
+            else if (command.equals("remove")) {
+                x = sc.nextInt(); 
+                ts.remove(x);  // add(x): x 제거
+            }
+            else if (command.equals("find")) {
+                x = sc.nextInt();
+
+                // contains(x): x키가 있는지 확인 
+                if (!ts.contains(x)) {
+                    System.out.println("false");
+                }
+                else {
+                    System.out.println("true");
+                }
+            }
+
+            // *ceiling, floor, higher, lower: null 여부 판단하기
+
+            // ceiling(x): x보다 같거나 큰 최초의 숫자
+            // floor(x): x보다 작거나 같은 최초의 숫자
+            else if (command.equals("lower_bound")) {
+                x = sc.nextInt(); 
+
+                if (ts.ceiling(x) != null) {  // null 체크
+                    System.out.println(ts.ceiling(x));  // ceiling(x): 
+                } else {
+                    System.out.println("None");
+                }
+            }
+
+            // higher(x): x보다 큰 최초의 숫자
+            // lower(x): x보다 작은 최초의 숫자
+            else if (command.equals("upper_bound")) {
+                x = sc.nextInt(); 
+
+                if (ts.higher(x) != null) {
+                    System.out.println(ts.higher(x));  
+                } else {
+                    System.out.println("None");
+                }
+            }
+
+            // first(), last(): isEmpty() 확인 
+
+            else if (command.equals("smallest")) {
+                if(!ts.isEmpty()) {
+                    System.out.println(ts.first());  // first(): 가장 작은 값
+                } else {
+                    System.out.println("None");
+                }
+            }
+                        else if (command.equals("largest")) {
+                if (!ts.isEmpty()) {
+                    System.out.println(ts.last());  // last(): 가장 큰 값
+                } else {
+                    System.out.println("None");
+                }
+            }
+        } 
+    }
+}
