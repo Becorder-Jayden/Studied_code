@@ -6,7 +6,7 @@
 //  poll(): 최솟값 데이터를 반환하고 데이터를 삭제
 
 import java.util.Scanner;
-import java.util.PriorityQueue;  // 우선순위큐 모듈
+import java.util.PriorityQueue;  // 우선순위 큐
 
 public class Main {
     public final static int MAX_N = 10000;
@@ -24,14 +24,17 @@ public class Main {
             
             if (command.equals("push")) {
                 int x = sc.nextInt();
-                pq.add(x);
+                pq.add(-x);  // *최대 우선순위 큐 구현을 위해 음수값 입력
             } 
+
             else if (command.equals("pop")) {
-                System.out.println(pq.poll());
+                System.out.println(-pq.poll());  // *poll(): 최솟값, 출력 후 제거
             }
+
             else if (command.equals("size")) {
                 System.out.println(pq.size());
             }
+
             else if (command.equals("empty")) {
                 if (pq.isEmpty()) {
                     System.out.println(1);
@@ -39,8 +42,10 @@ public class Main {
                     System.out.println(0);
                 }
             }
+
+            // *peek: 최솟값, poll: 최댓값
             else if (command.equals("top")) {
-                System.out.println(pq.poll());  // *peek: 최솟값, poll: 최댓값
+                System.out.println(-pq.peek());  // *peek(): 최솟값, 제거 x
             }
         } 
     }

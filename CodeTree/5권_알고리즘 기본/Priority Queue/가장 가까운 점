@@ -1,0 +1,52 @@
+import java.util.Scanner; 
+import java.util.PriorityQueue;
+
+class Pair implements Comparable<Pair> {
+    int x, y;
+
+    public Pair (int x, int y) {
+        this.x = x;
+        this.y = y; 
+    }
+
+    // x+y, x, y 우선순위 정렬, *각 기준은 각각의 if문으로 구성
+    @Override
+    public int compareTo(Pair p) {
+        if (this.x+this.y != p.x+p.y) {  // 원점으로부터 가까운 순으로 정렬
+            return (this.x+this.y) - (p.x+p.y);
+        }        
+        if (this.x != p.x) {  // 원점으로부터 거리가 동일할 때, x 기준으로 정렬
+            return this.x - p.x;
+        } 
+        return this.y - p.y;  // 원점으로부터 거리가 동일하고, x가 동일할 때, y 기준으로 정렬
+    }
+}
+
+public class Main {
+    public static PriorityQueue<Pair> pq = new PriorityQueue<>();
+    public static int n, m;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+
+            pq.add(new Pair(x, y)); 
+        }
+
+        while (m-->0) {
+            Pair p = pq.poll();  // p: pq에서 가장 작은 값 pop
+            p.x += 2; p.y += 2; 
+
+            pq.add(p);  // *간단하게 표기 가능: p.x, p.y를 이용해 객체를 만든 후 add할 필요 없다
+        }
+
+        Pair p = pq.poll();
+        System.out.println(p.x+" "+p.y);
+    }
+}
