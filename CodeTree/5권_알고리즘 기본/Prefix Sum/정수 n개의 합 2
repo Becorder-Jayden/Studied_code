@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int INT_MIN = Integer.MIN_VALUE;
+    public static final int MAX_N = 100000;
+    
+    public static int n, k;
+    public static int[] arr = new int[MAX_N+1];
+    public static int[] prefixSum = new int[MAX_N+1];  // *누적합 배열
+    public static int ans = INT_MIN;  // 최종적으로 최대값을 구해야 하므로, 초기값으로 가장 작은 수를 입력하고 시작
+
+
+    public static int getSum(int s, int e) {
+        return prefixSum[e] - prefixSum[s-1];  // (s, e)범위의 값, *s-1번 인덱스
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        n = sc.nextInt();
+        k = sc.nextInt();  // 연속 길이
+
+        for (int i=1; i<=n; i++) {
+            arr[i] = sc.nextInt();  // 입력값을 저장
+        }
+
+        // 누적합 배열 만들기
+        for (int i=1; i<=n; i++) {
+            prefixSum[i] = prefixSum[i-1] + arr[i];
+        }
+
+        // (i, i+k-1) 범위의 누적합 구하기 
+        //  cf.k가 특정 값으로 고정되어 있음, 따라서 탐색 범위를 고정할 수 있다
+        for (int i=1; i<=n-k+1; i++) {
+            ans = Math.max(ans, getSum(i, i+k-1));
+        }
+
+        System.out.println(ans); 
+    }
+
+}
