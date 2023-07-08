@@ -1,3 +1,5 @@
+// TreeMap: key를 순서대로 조회 가능
+
 import java.util.Scanner;
 
 import java.util.TreeMap;

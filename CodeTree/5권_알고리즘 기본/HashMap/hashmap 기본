@@ -1,0 +1,41 @@
+// put(k, v): k값으로 v 입력
+// remove(k): k값 제거
+// getOrDefault(k, d): k값 조회, 불가능할 때 d를 반환
+// constrainsKey(k): k값이 존재하는지 확인
+// get(k): k값 조회
+
+import java.util.Scanner;
+import java.util.HashMap;  // HashMap 모듈 import
+
+public class Main {
+    public static int n;
+    public static HashMap<Integer, Integer> m = new HashMap<>();  // 해시맵 자료구조 선언 
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            String order = sc.next();
+
+            if (order.equals("add")) {
+                int k = sc.nextInt();
+                int v = sc.nextInt();
+                m.put(k, v);        
+            }   
+            else if (order.equals("remove")) {
+                int k = sc.nextInt();
+                m.remove(k);
+            }
+             else {
+                int k = sc.nextInt();
+                if(!m.containsKey(k)) {  // m.constrainsKey(k): 해시맵 구조의 m에서 k가 있는지 확인
+                    System.out.println("None");
+                }
+                else {
+                    System.out.println(m.get(k));
+                }
+            }
+        }
+    }
+}

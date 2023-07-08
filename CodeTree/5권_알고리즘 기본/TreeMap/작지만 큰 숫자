@@ -1,0 +1,38 @@
+import java.util.Scanner; 
+import java.util.TreeSet;
+
+public class Main {
+
+    public final static int MAX_NUM = 100000; 
+    
+    public static int n, m;
+    public static int[] arr = new int[MAX_NUM];
+    public static TreeSet<Integer> ts = new TreeSet<>();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        for (int i=0; i<n; i++) {
+            ts.add(arr[i]);
+        }
+
+        for (int i=0; i<m; i++) {
+            int query = sc.nextInt();
+
+            if (ts.floor(query) != null) {
+                int target = ts.floor(query);
+                System.out.println(target);
+                ts.remove(target);
+            } else {
+                System.out.println(-1);
+            }
+        }
+    }
+}
