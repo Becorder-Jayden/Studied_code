@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_N = 1000;
+    
+    public static int n, k;
+    public static int[] arr = new int[MAX_N+1];
+    public static int[] prefixSum = new int[MAX_N+1];
+    public static int ans; 
+
+    public static int getSum(int s, int e) {
+        return prefixSum[e] - prefixSum[s-1];  // *(s, e)범위: e까지의 누적합 - (s-1)까지의 누적합  
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        n = sc.nextInt();
+        k = sc.nextInt();
+
+        for (int i=1; i<=n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        // 누적합 만들기
+        for (int i=1; i<=n; i++) {
+            prefixSum[i] = prefixSum[i-1] + arr[i];
+        }
+
+        // 만들 수 있는 (s, e)의 조합 만들어 확인
+        for (int i=1; i<=n; i++) {
+            for (int j=i; j<=n; j++ ){
+                if (getSum(i, j) == k) {
+                    ans++;
+                }
+            }
+        }
+        System.out.println(ans);
+    }
+}
