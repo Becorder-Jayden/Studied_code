@@ -1,0 +1,75 @@
+// **완벽히 이해되지 않았지만, 차원압축을 해서 진행
+//  가로축 누적합을 진행하고, 세로축을 증가시켜가며 dp에 기록
+
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_N = 300;
+    public static final int INT_MIN = Integer.MIN_VALUE;
+
+    public static int n;
+    public static int[][] grid = new int[MAX_N+1][MAX_N+1];
+    
+    // *prefixSum, dp 그리드를 만들어 사용 
+    public static int[][] prefixSum = new int[MAX_N+1][MAX_N+1];
+    public static int[][] dp = new int[MAX_N+1][MAX_N+1];
+    
+
+    // (x1, y1) ~ (x2, y2) 직사각형 구간 내의 원소의 합 반환
+    public static int getSum(int x1, int y1, int x2, int y2) {
+        return prefixSum[x2][y2] - prefixSum[x1-1][y2] - prefixSum[x2][y1-1] + prefixSum[x1-1][y1-1];
+    }
+
+
+    // getArea: (x1, x2) 범위의 직사각형 중 최대 합 반환
+    public static int getArea(int x1, int x2) {
+        
+        // *x범위가 (x1, x2)로 정해지면, 1차원에서 최대 연속 부분 수열의 합을 구하는 문제와 같아진다
+        //  → 동적 계획법으로 해결할 수 있다
+
+        // 직사각형의 세로 크기를 늘려가며 최대의 값 확인
+        for (int y=1; j<=n; j++) {
+            
+            int value = getSum(x1, y, x2, y);  // y열의 숫자 합 구하기
+
+            dp[y] = Math.max(value, dp[y-1]+value);
+        }
+
+        // dp값 중 최댓값이 구하고자 하는 값을 maxArea로 반환
+        int maxArea = INT_MIN;
+        for (int y=1; y<=n; y++) {
+            maxArea = Math.max(maxArea, dp[y]);  
+        }
+
+        return maxArea;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+
+        // 주어진 값 입력
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n; j++) {
+                grid[i][j] = sc.nextInt();
+            }
+        }
+
+        // 누적합 그리드 생성
+        prefixSum[0][0] = 0; 
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n ;j++) {
+                prefixSum[i][j] = prefixSum[i-1][j] + prefixSum[i][j-1] - prefixSum[i-1][j-1] + grid[i][j];
+            }
+        }
+
+        // 직사각형의 (시작, 끝) 결정, 각 쌍으로 가능한 직사각형 중 최대합을 계산
+        int ans = INT_MIN; 
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n; j++) {
+                ans = Math.max(ans, getArea(i, j)); 
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+// idx, arr, prefixSum을 직접 그려볼 것
+// k라는 범위가 고정되어 있어서 활용할 수 있다?: 추측
+
+import java.util.Scanner;
+
+public class Main {
+    public static final int INT_MAX = Integer.MAX_VALUE;  // 최솟값을 정답으로 구하기 전 최대값을 가질 수 있도록 함
+    public static int MAX_N = 100000;
+
+    public static int n, k, b;
+    public static int[] arr = new int[MAX_N+1];
+    public static int[] prefixSum = new int[MAX_N+1];  // 누적합 배열 
+    public static int ans = INT_MAX;
+
+    public static int getSum(int s, int e) {
+        return prefixSum[e] - prefixSum[s-1];
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        k = sc.nextInt();
+        b = sc.nextInt();
+
+        // 빠져있는 숫자 표시
+        while (b-->0) {
+            int x = sc.nextInt();
+            arr[x] = 1;  
+        } 
+        
+        //==*누적합 배열 만들기: (1, i)범위, 빠져있는 숫자의 개수==// 
+        prefixSum[0] = 0;
+        for (int i=1; i<=n; i++) {
+            prefixSum[i] = prefixSum[i-1] + arr[i];  // 없는 숫자의 개수
+        }
+
+        // i에서 시작, k길이를 갖는 범위를 탐색해서 빠져있는 개수를 구함
+        for(int i = 1; i <= n-k+1; i++) {  // *n-k+1: 최대 범위 주의
+            ans = Math.min(ans, getSum(i, i+k-1));  // (i, i+k-1) 범위의 값 구하기 *i+k-1: i에서 k만큼의 길이 확인 
+        }
+
+        System.out.println(ans);
+    }
+}
