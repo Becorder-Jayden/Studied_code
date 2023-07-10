@@ -1,0 +1,56 @@
+// PrefixSum 테스트 문제
+
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_NUM = 100000;
+    public static final int MAX_C = 3;
+
+    public static int n, q;
+    public static int[] arr = new int[MAX_NUM+1];
+    public static int[][] prefixSum = new int[MAX_C+1][MAX_NUM+1];
+    
+    public static int cntNum(int c, int s, int e) {
+        if (s == 0) {
+            return prefixSum[c][e];
+        }
+        return prefixSum[c][e] - prefixSum[c][s-1];
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt(); 
+        q = sc.nextInt(); 
+
+        for (int i=1; i<=n; i++) {
+            arr[i] = sc.nextInt();
+            if (arr[i] == 1) {
+                prefixSum[1][i]++;
+            } else if (arr[i] == 2) {
+                prefixSum[2][i]++;
+            } else {
+                prefixSum[3][i]++;
+            }
+        }
+
+        // 누적합 이차원 배열 만들기
+        for (int c=1; c<=3; c++) {
+            for (int i=1; i<=n; i++) {
+                if (arr[i] == c) {
+                    prefixSum[c][i] = prefixSum[c][i-1] + 1;
+                } else {
+                    prefixSum[c][i] = prefixSum[c][i-1];
+                }
+            }
+        }
+
+        while (q-->0) {
+            int a = sc.nextInt();
+            int b = sc.nextInt();
+
+            System.out.print(cntNum(1, a, b)+" ");
+            System.out.print(cntNum(2, a, b)+" ");
+            System.out.println(cntNum(3, a, b));
+        }
+    }
+}
