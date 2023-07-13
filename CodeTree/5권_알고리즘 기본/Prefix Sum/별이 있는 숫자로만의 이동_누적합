@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_N = 400;
+
+    public static int n, k;
+    public static int[][] grid = new int[MAX_N+1][MAX_N+1];
+    public static int[][] prefixSum = new int[MAX_N+1][MAX_N+1];
+    public static int ans = 0;
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt(); 
+        k = sc.nextInt();
+
+        // 주어진 값 입력
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n; j++) {
+                grid[i][j] = sc.nextInt();
+            }
+        }
+
+        // 배열의 누적합 구하기
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n; j++) {
+                prefixSum[i][j] = prefixSum[i][j-1] + grid[i][j];
+            }
+        }
+
+        // 모든 중심에 대한 최댓값 구하기 
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n; j++) {
+                
+                // 중심이 (i, j)일 때의 숫자 합 구하기
+                int sumAll = 0; 
+
+                for (int r = i-k; r<=i+k; r++) {  // (i-k, i+k) 범위
+                    
+                    // r행일 때 (j-c ~ j+c)열까지의 부분합 더하기
+                    int c = k - Math.abs(i-r);
+
+                    // r행일 때 범위 안에 있는 경우 부분합 더하기
+                    if (1<=r && r <=n) {
+                        sumAll += prefixSum[r][Math.min(j+c, n)] - prefixSum[r][Math.max(j-c-1, 0)];
+                    }
+                    ans = Math.max(ans, sumAll);
+                }
+            }
+        }
+        System.out.println(ans);
+    }   
+}

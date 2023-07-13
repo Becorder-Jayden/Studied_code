@@ -1,0 +1,124 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+
+class Pair {
+    int x, y; 
+
+    public Pair (int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+}
+
+public class Main {
+    public static final int BOMB_TYPE = 3;
+    public static final int MAX_N = 20;
+
+    public static int n;
+    public static int[][] bombType = new int[MAX_N+1][MAX_N+1];
+    public static boolean[][] bombed = new boolean[MAX_N+1][MAX_N+1];
+
+    public static int ans;
+
+    // 폭탄의 위치 기록
+    public static ArrayList<Pair> bombPos = new ArrayList<>();
+
+    // 이차원 범위 내에 존재하는지 확인
+    public static boolean inRange(int x, int y) {
+        return 1<=x && x<=n && 1<=y && y<=n; 
+    }
+
+
+    // 폭탄의 영역 
+    public static void bomb(int x, int y, int bType) {
+        
+        // 폭탄 종류마다 터질 위치를 미리 정한다 
+        Pair[][] bombShapes = {  
+            {},  // bType: 0
+            {new Pair(-2, 0), new Pair(-1, 0), new Pair(0, 0), new Pair(1, 0), new Pair(2, 0)},  // bType: 1
+            {new Pair(-1, 0), new Pair(1, 0), new Pair(0, 0), new Pair(0, 1), new Pair(0, -1)},  // bType: 2
+            {new Pair(-1, -1), new Pair(-1, 1), new Pair(0, 0), new Pair(1, 1), new Pair(1, -1)},  // bType: 3
+        };
+
+        // 격자 내 칸에 대해 영역을 표시
+        for (int i=0; i<5; i++) {
+            int dx = bombShapes[bType][i].x;
+            int dy = bombShapes[bType][i].y; 
+
+            int nx = x + dx, ny = y + dy;
+            if (inRange(nx, ny)) {
+                bombed[nx][ny] = true;
+            }
+        }
+    }
+
+
+    public static int calc() {
+
+        // 폭발 위치 배열 초기화
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n; j++) {
+                bombed[i][j] = false;
+            }
+        }
+
+        // 폭탄에 의해 폭발하는 영역 표시
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n; j++) {
+                if (bombType[i][j] != 0) {
+                    bomb(i, j, bombType[i][j]); 
+                }
+            }
+        }
+        
+        // 폭발한 곳의 수 계산
+        int cnt = 0; 
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n; j++) {
+                if (bombed[i][j]) {
+                    cnt++; 
+                }
+            }
+        }
+        return cnt;
+    }
+
+    public static void findMaxArea(int cnt) {
+        // 모든 폭탄을 확인했을 때, ans 갱신
+        if (cnt == bombPos.size()) {  // cnt==bombPos.size(): 모든 폭탄 확인
+            ans = Math.max(ans, calc());
+            return;
+        }
+
+        for (int i=1; i<=3; i++) {
+            // cnt번째로 기록된 폭탄을 꺼내서 확인
+            int x = bombPos.get(cnt).x;
+            int y = bombPos.get(cnt).y;
+
+            bombType[x][y] = i;  // 폭탄의 유형: 1 ~ 3의 값, for문을 통해 입력
+            findMaxArea(cnt+1);
+            bombType[x][y] = 0;
+        }
+    }
+
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n; j++) {
+                bombType[i][j] = sc.nextInt();
+                
+                if (bombType[i][j] > 0) {
+                    bombPos.add(new Pair(i, j));  // 폭탄의 위치 (x, y) 기록
+                }
+            }
+        }
+        
+        findMaxArea(0);
+
+        System.out.println(ans);
+    }
+}

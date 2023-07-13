@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_NUM = 1000000; 
+    
+    public static int n, q; 
+    public static int[] arr = new int[MAX_NUM+1];
+    public static int[] prefixSum = new int[MAX_NUM+1];
+
+    public static int countPoints(int s, int e) {
+        
+        // *코드를 실행하지 않으면 런타임 오류 발생: s==0일 때, prefixSum[s-1] 부분에서 배열 인덱스가 음수가 되기 때문
+        if (s==0) {
+            return prefixSum[e];
+        }
+
+        return prefixSum[e] - prefixSum[s-1];
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        n = sc.nextInt();
+        q = sc.nextInt();
+
+        for (int i=1; i<=n; i++) {
+            int x = sc.nextInt();
+            arr[x] = 1;
+        }
+
+        for (int i=1; i<=MAX_NUM; i++) {
+            prefixSum[i] = prefixSum[i-1] + arr[i]; 
+        }
+ 
+        for (int i=0; i<q; i++) {
+            int s = sc.nextInt();
+            int e = sc.nextInt();
+
+            System.out.println(countPoints(s, e));
+        }
+
+    }
+}
