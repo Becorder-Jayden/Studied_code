@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_N = 100000; 
+    public static final int INT_MIN = Integer.MIN_VALUE;
+    public static int n;
+    public static int[] a = new int[MAX_N+1];  // *dp배열을 꼭 사용할 필요가 없었다
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt(); 
+        
+        for (int i=1;i<=n; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        int ans = INT_MIN;
+        int sum = 0;
+        
+        for (int i=1; i<=n; i++) {
+
+            if (sum < 0) {  // 연속된 수의 합이 양수: 연속했을 때 보다 초기화 하는 것이 이익
+                sum = a[i];
+            } 
+            else {  // 연속된 수의 합이 양수: 연속했을 때 이익
+                sum += a[i];
+            }
+            ans = Math.max(ans, sum);
+        }
+        System.out.println(ans);
+    }
+}
