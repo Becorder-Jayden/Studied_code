@@ -1,0 +1,23 @@
+import java.util.Scanner; 
+
+public class Main {
+    public static final int MAX_N = 10; 
+    public static int n, k, ans;
+    public static int[] kinds = new int[MAX_N];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();  // 동전 종류 개수
+        k = sc.nextInt();  // 만들어야 하는 금액
+
+        for (int i=0; i<n; i++) {
+            kinds[i] = sc.nextInt();
+        }
+
+        for (int i=n-1; i>=0; i--) {  // *i의 범위 역순: (n-1, 0)
+            ans += k/kinds[i];
+            k = k%kinds[i];
+        }
+        System.out.println(ans); 
+    }
+}
