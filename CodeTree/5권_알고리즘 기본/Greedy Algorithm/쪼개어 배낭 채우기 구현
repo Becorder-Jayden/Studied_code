@@ -14,7 +14,7 @@ class Jewel implements Comparable<Jewel> {
     public int compareTo(Jewel j) {
         double x = (double)j.v/j.w - (double)this.v/this.w;  // 내림차순 정렬 (인스턴스 > this)
         
-        // Question: return -1/0/1 이해 x
+        // Question: return -1/0/1 이해 x?
         if (x<0) {  // 무게 대비 가격이 작음
             return -1;
         } else if (x == 0) {  // 무게 대비 가격이 동일
@@ -58,7 +58,7 @@ public class Main {
             } 
             // 가방이 온전한 보석을 담을 수 없음 → 쪼개야 함
             else {
-                ans += ((double)v/w * m);
+                ans += (double)v/w*m;  // *곱과 나눗셈 밖에 없으므로 굳이 괄호를 여러개 사용할 이유x
                 m = 0;
             }
         }
