@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static final int MAX_N = 1000;
+
+    public static int n, ans;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        n = sc.nextInt();
+        String inputStr = sc.next();
+        String targetStr = sc.next();
+
+        int ans = 0; 
+        for (int i=n-1; i>=0; i--) {
+            
+            // 두 문자가 다르면서, 이전에 눌렀던 횟수가 짝수일 때(= i번 문자에 영향을 주지 못함): 현재 위치 선택
+            if ((inputStr.charAt(i) != targetStr.charAt(i)) && (ans%2 == 0)) {
+                ans ++;
+            } 
+            // 두 문자가 같으면서, 이전에 눌렀던 횟수가 홀수일 때(= i번 문자에 영향을 주는 경우): 현재 위치 선택
+            else if ((inputStr.charAt(i) == targetStr.charAt(i)) && (ans%2 == 1)) {
+                ans ++; 
+            }
+        }
+        System.out.println(ans); 
+    }
+}
