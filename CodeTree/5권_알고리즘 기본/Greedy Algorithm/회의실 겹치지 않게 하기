@@ -1,0 +1,46 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
+class Pair implements Comparable<Pair> {
+    int start, end;
+
+    public Pair (int start, int end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    @Override 
+    public int compareTo(Pair p) {
+        return this.end - p.end;
+    }
+}
+public class Main {
+    public static final int MAX_N = 100000; 
+
+    public static int n, ans;
+    public static ArrayList<Pair> al = new ArrayList<>();
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+        n = sc.nextInt();
+        for (int i=0; i<n; i++) {
+            int s = sc.nextInt();
+            int e = sc.nextInt();
+            al.add(new Pair(s, e));
+        }
+
+        Collections.sort(al);
+
+        int currE = 0;
+        for (int i=0; i<n; i++) {
+            if (currE <= al.get(i).start) {
+                currE = al.get(i).end;
+            } else {
+                ans++;
+            }
+        }
+        System.out.println(ans); 
+    }
+}
