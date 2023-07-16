@@ -1,0 +1,40 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_N = 1000; 
+
+    public static int n;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        n = sc.nextInt();
+        String initStr = sc.next();
+        String targetStr = sc.next();
+
+        int ans = 0;
+        boolean mismatched = false;  // 일치하지 않을 때 true;
+
+        for (int i=0; i<n; i++) {
+            if (initStr.charAt(i) != targetStr.charAt(i)) {
+                if (!mismatched) {  // 처음 일치하지 않을 때만 ans 증가
+                    mismatched = true;
+                    ans++;
+                }
+            } else {
+                mismatched = false;
+            }
+        }
+        System.out.println(ans);
+
+    
+
+        // for (int i=0; i<n; i++) {
+        //     System.out.print(ic[i]+" "); 
+        // }
+        // System.out.println(); 
+        // for (int i=0; i<n; i++) {
+        //     System.out.print(tc[i]+" "); 
+        // }
+
+    }
+}
