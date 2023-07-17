@@ -1,0 +1,66 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int DIR_NUM = 5; 
+    public static final int MAX_N = 100;
+
+    // 상,하,중,좌,우
+    public static int[] dx = new int[]{-1, 1, 0, 0, 0};
+    public static int[] dy = new int[]{0, 0, 0, -1, 1};
+
+    public static int n;
+    public static int[][] grid = new int[MAX_N][MAX_N];
+
+    public static boolean inRange(int x, int y) {
+        return 0<=x && x<n && 0<=y && y<n;
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        n = sc.nextInt();
+
+        // 주어진 값 입력
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<n; j++) {
+                grid[i][j] = sc.nextInt();
+            }
+        }
+
+
+        int cnt = 0;
+        for (int i=1; i<n; i++) {
+            for (int j=0; j<n; j++) {
+                if (grid[i-1][j] == 0) {  // *sol: grid[i-1][j]가 0이면 누른다
+                    cnt ++; 
+
+                    // 5개의 방향에 대해 변경
+                    for (int k=0; k<DIR_NUM; k++) {
+                        int x = i + dx[k];
+                        int y = j + dy[k];
+
+                        if (!inRange(x, y)) {  // 제한된 범위를 벗어날때 continue
+                            continue;
+                        }
+
+                        // 0/1 반전
+                        grid[x][y] ^= 1;  // 방법 1: 비트연산자 활용 
+                        // grid[x][y] = 1 - grid[x][y];  // 방법 2: 마이너스 활용  
+                    }
+                }
+            }
+        }
+
+        boolean possible = true;
+        for (int i=0; i<n; i++) {
+            if (grid[n-1][i] != 1) {  // 마지막 행을 확인하면서 1이 아닌 경우 확인
+                possible = false;
+            }
+        }
+
+        if (possible == false) {
+            System.out.println(-1);
+        } else {
+            System.out.println(cnt);
+        }
+    }
+}

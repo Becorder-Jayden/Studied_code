@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_N = 1000;
+
+    public static int n;
+    public static boolean[] a = new boolean[MAX_N];
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt(); 
+        String inputStr = sc.next();
+        String targetStr = sc.next();
+
+        for (int i=0; i<n; i++) {
+            char ic = inputStr.charAt(i);
+            char tc = targetStr.charAt(i);
+            
+            if (ic == tc) {
+                a[i] = true;
+            } else {
+                a[i] = false;
+            }
+        }
+
+        int cnt = 0;
+        for (int i=0; i<n; i++) {
+            if (a[i] == false) {
+                cnt ++;
+                for (int j=0; j<4; j++) {
+                    if (a[i+j] == false) {
+                        a[i+j] = true;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        System.out.println(cnt);
+    }
+}
