@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int[] days = new int[]{0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    public static int m1, d1, m2, d2, ans; 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        m1 = sc.nextInt();
+        d1 = sc.nextInt();
+        m2 = sc.nextInt();
+        d2 = sc.nextInt();
+
+        for (int i=m1; i<m2; i++) {
+            ans += days[i];
+        }
+
+        ans -= (d1-1);  // 시작 달의 날짜 추가 계산
+        ans += d2;  // 마지막 달의 날짜 추가 계산
+
+        System.out.println(ans);
+    }
+}

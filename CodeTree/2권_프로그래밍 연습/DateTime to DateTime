@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+    public static int ans, a, b, c;
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        a = sc.nextInt();
+        b = sc.nextInt();
+        c = sc.nextInt();
+
+        if (a > 11) {
+            // 12일 00:00 ~ a-1일 00:00 까지 계산
+            for (int i=12; i<=a-1; i++) {  
+                ans += 24*60;
+            }
+
+            // 11일 11:11 반영
+            ans += 24*60 - (60*11 + 11);
+
+            // a일 b:c 반영
+            ans += b*60 + c;
+        }
+
+        if ((a<11) || (a==11 && b<11) || (a==11 && b==11 && c<11)) {
+            ans = -1;
+        }
+
+        System.out.println(ans);  
+    }
+}
