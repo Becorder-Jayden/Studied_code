@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class Main {
+    public static int n;
+    public static int[] digits = new int[20];  // *적당한 크기의 배열 사용
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        int idx = 0;
+
+        //==이진수 변환 과정==//
+        while (true) {
+            // n이 2보다 작은 경우 
+            if (n < 2) {
+                digits[idx++] = n;
+                break;
+            }
+
+            // n이 2보다 큰 경우
+            digits[idx++] = n%2;  // cnt값 증가, 2로 나눈 나머지를 저장
+            n /= 2;  // n을 2로 나눈 값으로 갱신
+        }
+
+        // 정답 출력
+        for (int i = idx-1; i>=0; i--) {  // *idx 위치부터 거꾸로 출력하기
+            System.out.print(digits[i]); 
+        }
+    }
+
+}

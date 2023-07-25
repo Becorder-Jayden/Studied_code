@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+    public static String n; 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        n = sc.next();  // *주어지는 이진수를 문자로 받는다
+    
+        //==2진수를 10진수로 변환하는 과정==//
+        int num = 0;
+        for (int i=0; i<n.length(); i++) {
+            
+            // *기존 저장된 num값을 2배
+            // *확인중인 인덱스의 아스키코드 값을 비교해서 추가 
+            num = num*2 + (n.charAt(i) - '0');  
+        }
+
+        System.out.println(num);
+    }
+}
