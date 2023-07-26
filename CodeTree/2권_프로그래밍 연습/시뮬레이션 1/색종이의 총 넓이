@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_N = 200; 
+    public static final int OFFSET = 100; 
+    public static int[][] graph = new int[MAX_N+1][MAX_N+1];
+    public static int n;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        n = sc.nextInt();
+        while(n-->0) {
+            int lx = sc.nextInt()+OFFSET;
+            int ly = sc.nextInt()+OFFSET;
+
+            for (int i=lx; i<lx+8; i++){
+                for (int j=ly; j<ly+8; j++) {
+                    graph[i][j] = 1;
+                }
+            }
+        }
+
+        int ans = 0;
+        for (int i=0; i<MAX_N; i++) {
+            for (int j=0; j<MAX_N; j++) {
+                if (graph[i][j]>0) {
+                    ans ++;
+                }
+            } 
+        } 
+        System.out.println(ans); 
+    }
+}
