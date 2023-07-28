@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_NUM = 100;
+
+    // 6, 3, 12, 9
+    public static final int[] dx = new int[]{1,0,-1,0};
+    public static final int[] dy = new int[]{0,1,0,-1};
+
+    public static int n, m;
+    public static int[][] grid = new int[MAX_NUM][MAX_NUM];
+
+    public static boolean inRange(int x, int y) {
+        return 0<=x && x<n && 0<=y && y<m;  // *n, m 범위 설정에서 실수하지 않도록 주의
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+        
+        int x = 0, y = 0, dir = 0;
+        grid[x][y] = 1;
+
+        for (int i=2; i<=n*m; i++) {
+            while (true) {  // *오답 해결: while문 추가 
+                int nx = x + dx[dir];
+                int ny = y + dy[dir];
+
+                if (inRange(nx, ny) && grid[nx][ny] == 0) {
+                    x = nx;
+                    y = ny;
+                    grid[x][y] = i;
+                    break;
+                } else {
+                    dir = (dir+1)%4; 
+                }
+            }
+        }
+
+        for (int i=0; i<n; i++) { 
+            for (int j=0; j<m; j++) {
+                System.out.print(grid[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+}

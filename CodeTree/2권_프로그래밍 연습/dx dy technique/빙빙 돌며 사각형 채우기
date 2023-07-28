@@ -1,0 +1,54 @@
+ㅁimport java.util.Scanner;
+
+public class Main {
+    public static final int MAX_NUM = 100;
+    public static int n, m;
+
+    // 3, 6, 9, 12    
+    public static final int[] dx = new int[]{0,1,0,-1};
+    public static final int[] dy = new int[]{-1,0,1,0};
+
+    public static char[][] grid = new char[MAX_NUM][MAX_NUM];
+    public static boolean[][] visited = new boolean[MAX_NUM][MAX_NUM];
+
+    public static boolean inRange(int x, int y) {
+        return 0<=x && x<n && 0<=y && y<m;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        int x = 0, y = 0, dir = 2;
+        char c = 'A';
+        grid[0][0] = c;
+        visited[0][0] = true;
+
+        for (int i=1; i<n*m; i++) {
+            while (true) {
+                int nx = x + dx[dir];
+                int ny = y + dy[dir];
+
+                if (inRange(nx, ny) && visited[nx][ny] == false) {
+                    x = nx;
+                    y = ny;
+                    visited[x][y] = true;  
+                    grid[x][y] = (char)(i%26 + 'A');  // *char 타입의 값을 추가 방법
+
+                    break; 
+                } 
+                else {
+                    dir = (dir+1) % 4;
+                }
+            }
+        }
+
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<m; j++) {
+                System.out.print(grid[i][j]+" ");
+            }
+            System.out.println();
+        }
+    }
+}
