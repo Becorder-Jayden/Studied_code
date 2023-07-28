@@ -1,58 +1,48 @@
 import java.util.Scanner;
 
 public class Main {
-    public static int DIR_NUM = 4;
-    public static int MAX = 100;
+    public static final int MAX_N = 99;
+    public static int n, t;
 
-    public static int n, t, currX, currY;
-    public static int dir;  // 북쪽을 보고 시작
-    public static int[][] arr = new int[MAX][MAX];
+    public static int[] dx = new int[]{-1,0,1,0};
+    public static int[] dy = new int[]{0,1,0,-1};
+    public static int[][] grid = new int[MAX_N][MAX_N];
 
-    // U, R, D, L
-    public static int[] dx = new int[]{-1, 0, 1, 0};
-    public static int[] dy = new int[]{0, 1, 0, -1};
-
-    // inRange
     public static boolean inRange(int x, int y) {
         return 0<=x && x<n && 0<=y && y<n;
     }
-    
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
         n = sc.nextInt();
         t = sc.nextInt();
-
         String str = sc.next();
-        int len = str.length();
 
-        for (int i=0; i<n; i++){
+        int x = n/2, y = n/2;
+        int dir = 0;
+
+        for (int i=0; i<n; i++) {
             for (int j=0; j<n; j++) {
-                arr[i][j] = sc.nextInt();
+                grid[i][j] = sc.nextInt();
             }
         }
 
-        currX = n/2; currY = n/2;
-
-        int ans = arr[currX][currY];
-        dir = 0;
-
-        for (int i=0; i<len; i++) {
-
+        int ans = grid[x][y]; 
+        for (int i=0; i<str.length(); i++){
             char c = str.charAt(i);
 
-            if (c == 'R') {
+            if (c == 'L') {
+                dir = (dir-1+4) % 4;
+            } else if (c == 'R') {
                 dir = (dir+1) % 4;
-            } 
-            else if (c == 'L') {
-                dir = (dir+3) % 4;  // *아이디어 챙겨가기 
-            } 
-            else {
-                if (inRange(currX+dx[dir], currY+dy[dir])) {
-                    currX = currX + dx[dir];
-                    currY = currY + dy[dir];
+            } else {
+                int nx = x + dx[dir];
+                int ny = y + dy[dir];
 
-                    ans += arr[currX][currY];
+                if (inRange(nx, ny)) {
+                    x = nx;
+                    y = ny;
+                    ans += grid[x][y];
                 }
             }
         }

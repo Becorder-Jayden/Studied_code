@@ -1,0 +1,18 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in); 
+        String str = sc.next();
+
+        // char 배열로 문자열을 정렬
+        char[] chars = str.toCharArray();
+        Arrays.sort(chars);
+
+        // 정렬된 char 배열을 가지고 문자 만들기
+        String sortedStr = new String(chars);
+        
+        System.out.println(sortedStr); 
+    }
+}

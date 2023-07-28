@@ -1,0 +1,38 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static final int MAX_N = 100;
+    public static int n, k;
+    public static String t; 
+    public static String[] arr = new String[MAX_N+1];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        k = sc.nextInt();
+        t = sc.next();
+
+        int idx = -1;
+        for (int i=0; i<n; i++) {
+            boolean tf = true;
+            String str = sc.next();
+           
+            if (str.length() >= t.length()) {
+                for (int j=0; j<t.length(); j++) {
+                    if (str.charAt(j) != t.charAt(j)) {
+                        tf = false;
+                    }
+                }
+                if (tf) {
+                    idx ++; 
+                    arr[idx] = str;
+                }
+            }
+        }
+
+        Arrays.sort(arr, 0, idx+1);
+
+        System.out.println(arr[k-1]);
+    }
+}
