@@ -1,0 +1,44 @@
+import java.util.Scanner; 
+
+public class Main {
+    public static final int MAX_N = 100;
+    public static final int DIR_NUM = 4;
+
+    public static final int[] dx = new int[]{-1,1,0,0};
+    public static final int[] dy = new int[]{0,0,-1,1};
+
+    public static int[][] grid = new int[MAX_N+1][MAX_N+1];
+    public static int n;
+
+    public static boolean inRange(int x, int y) {
+        return 1<=x && x<=n && 1<=y && y<=n;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n; j++) {
+                grid[i][j] = sc.nextInt();
+            }
+        }
+
+        int ans = 0;
+        for (int i=1; i<=n; i++) {
+            for (int j=1; j<=n; j++) {
+                int cnt = 0;
+                for (int d=0; d<DIR_NUM; d++) {
+                    int nx = i+dx[d];
+                    int ny = j+dy[d];
+                    if (inRange(nx, ny) && grid[nx][ny]==1) {
+                        cnt ++;
+                    }
+                }
+                if (cnt >=3) {
+                    ans ++;
+                }
+            }
+        }
+        System.out.println(ans); 
+    }
+}

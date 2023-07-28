@@ -1,0 +1,48 @@
+import java.util.Scanner; 
+
+public class Main {
+    public static final int MAX_N = 50;
+    public static int n, t;
+
+    public static int[] dx = new int[]{0,-1,0,1};
+    public static int[] dy = new int[]{-1,0,1,0};
+
+    public static int[][] grid = new int[MAX_N+1][MAX_N+1];
+
+    public static boolean inRange(int x, int y) {
+        return 1<=x && x<=n && 1<=y && y<=n;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        t = sc.nextInt();
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        char c = sc.next().charAt(0);
+
+        int dir;
+        if (c == 'L') {
+            dir = 0; 
+        } else if (c == 'U') {
+            dir = 1;
+        } else if (c == 'R') {
+            dir = 2;
+        } else {
+            dir = 3;
+        }
+
+        while (t-->0) {
+            int nx = x + dx[dir];
+            int ny = y + dy[dir];
+            if (inRange(nx, ny)) {
+                x = nx;
+                y = ny;
+            } else {
+                dir = (dir+2) % 4;
+            }
+        }
+
+        System.out.println(x+" "+y);
+    }
+}
