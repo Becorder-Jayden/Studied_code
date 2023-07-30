@@ -1,0 +1,45 @@
+import java.util.Scanner; 
+import java.util.Arrays;
+import java.util.Collections;
+
+class File implements Comparable<File> {
+    String name, zipCode, region;
+
+    public File(String name, String zipCode, String region) {
+        this.name = name;
+        this.zipCode = zipCode;
+        this.region = region;
+    }
+
+    @Override
+    public static int compareTo(File file) {
+        return this.name - file.name;
+    }
+}
+
+public class Main {
+    public static final int MAX_N = 10;
+    public static int n; 
+    public static File[] files = new File[MAX_N];
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+    
+        for (int i=0; i<n; i++) {
+            String name = sc.next();
+            String zipCode = sc.next();
+            String region = sc.next();
+            
+            files[i] = new File(name, zipCode, region);
+        }
+
+        int idx = 0;
+        for (int i=0; i<n; i++) {
+            
+            // 배열의 i요소의 값과 idx가 가리기는 값 비교 
+            if (files[i].name.compareTo(files[idx].name) > 0) {
+                idx = i;  // idx를 i값으로 수정
+            }
+        }
+    }
+}

@@ -1,0 +1,49 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+class Number implements Comparable<Number> {
+    int number;
+    int index;
+
+    public Number(int number, int index) {
+        this.number = number;
+        this.index = index;
+    }
+
+    @Override 
+    public int compareTo(Number number) {
+        if (this.number != number.number) {
+            return this.number - number.number;
+        } else {
+            return this.index - number.index;
+        }
+    }
+}
+
+public class Main {
+    public static final int MAX_N = 1000;
+    public static int n;
+    public static Number[] numbers = new Number[MAX_N];
+    public static int[] ans = new int[MAX_N];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            int num = sc.nextInt();
+            numbers[i] = new Number(num, i);  // *index를 정렬 기준으로 사용하기 위해 추가 
+        }
+
+        Arrays.sort(numbers, 0, n);
+
+        // *풀이 핵심: 보고 배우기
+        for (int i=0; i<n ;i++) {
+            ans[numbers[i].index] = i+1;
+        }
+
+        for (int i=0; i<n; i++) {
+            System.out.print(ans[i]+" ");
+        }
+    }
+}
