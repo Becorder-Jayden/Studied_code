@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_N = 20;
+    public static int[] arr = new int[MAX_N];
+    public static int n;
+
+    public static boolean carry(int x, int y, int z) {
+        if ((x%10 + y%10 + z%10 < 10)  // 1의 자리 
+            && (x%100/10 + y%100/10 + z%100/10 < 10)  // 10의 자리
+            && (x%1000/100 + y%1000/100 + z%1000/100 < 10)  // 100의 자리 
+            && (x%10000/1000 + y%10000/1000 + z%10000/1000 < 10)) {  // 1000의 자리 
+                return true;
+            }
+        return false; 
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        for (int i=0; i<n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int ans = -1;
+        for (int i=0; i<n-2; i++) {
+            for (int j=i+1; j<n-1; j++) {
+                for (int k=j+1; k<n; k++) {
+                    if (carry(arr[i], arr[j], arr[k])) {
+                        ans = Math.max(ans, arr[i]+arr[j]+arr[k]);
+                    }
+                }
+            }
+        }
+        System.out.println(ans);
+    }
+}

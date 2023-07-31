@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int INT_MIN = Integer.MIN_VALUE;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String a = sc.next();
+        
+        int ans = INT_MIN;   
+        for (int i=0; i<(int)a.length(); i++) {
+            
+            // i번째 자릿수 변경: **a.substring(startIdx, lastIdx): startIdx ~ lastIdx-1 구간 슬라이싱, lastIdx가 없으면 나머지를 의미
+            a = a.substring(0, i)  // 앞부분 
+                + (char)((int)'0' + '1' - a.charAt(i))  // 변경부분
+                + a.substring(i+1);  // 뒷부분       
+                
+            // 변경한 a값을 이용해 십진수로 변경
+            int num = 0;
+            for (int j=0; j<(int)a.length(); j++) {
+                num = num * 2 + (a.charAt(j) - '0');
+            }
+            
+            ans = Math.max(ans, num);
+            
+            // i번째 자릿수를 원래대로 돌려놓음
+            a = a.substring(0, i) 
+                + (char)((int)'0' + '1' - a.charAt(i)) 
+                + a.substring(i+1);
+        }
+        System.out.print(ans);
+    }
+}

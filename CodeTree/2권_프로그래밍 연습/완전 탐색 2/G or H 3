@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_POS = 10000;
+    public static int n, k;
+    public static int[] arr = new int[MAX_POS+1];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        k = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            int pos = sc.nextInt();
+            char alpha = sc.next().charAt(0);
+
+            if (alpha == 'G') {
+                arr[pos] = 1;
+            } else if (alpha == 'H') {
+                arr[pos] = 2;
+            }
+        }
+
+        int ans = 0;
+        for (int i=0; i<MAX_POS-k+1; i++) {
+            int partial = 0;
+            for (int j=0; j<k+1; j++) {
+                partial += arr[i+j];
+            }
+            ans = Math.max(ans, partial);
+        }
+        System.out.println(ans);
+    }
+}

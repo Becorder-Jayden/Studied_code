@@ -1,45 +1,49 @@
-import java.util.Scanner; 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.Scanner;
 
-class File implements Comparable<File> {
-    String name, zipCode, region;
+class Person {
+    String name, address, region;
 
-    public File(String name, String zipCode, String region) {
+    public Person() {
+        this.name = "";
+        this.address = "";
+        this.region = "";
+    }
+
+    public Person (String name, String address, String region) {
         this.name = name;
-        this.zipCode = zipCode;
+        this.address = address;
         this.region = region;
     }
 
-    @Override
-    public static int compareTo(File file) {
-        return this.name - file.name;
-    }
+    // *굳이 compareTo를 오버라이드할 필요 없다
 }
 
 public class Main {
     public static final int MAX_N = 10;
-    public static int n; 
-    public static File[] files = new File[MAX_N];
+    public static Person[] people = new Person[MAX_N];
+    public static int n;
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         n = sc.nextInt();
-    
         for (int i=0; i<n; i++) {
             String name = sc.next();
-            String zipCode = sc.next();
+            String address = sc.next();
             String region = sc.next();
-            
-            files[i] = new File(name, zipCode, region);
+
+            people[i] = new Person(name, address, region);
         }
 
-        int idx = 0;
+        Person lastOne = new Person();  // *기본 생성자 필요 
         for (int i=0; i<n; i++) {
-            
-            // 배열의 i요소의 값과 idx가 가리기는 값 비교 
-            if (files[i].name.compareTo(files[idx].name) > 0) {
-                idx = i;  // idx를 i값으로 수정
+
+            // **중요 풀이 과정
+            if (people[i].name.compareTo(lastOne.name) > 0) {
+                lastOne = people[i];
             }
         }
+
+        System.out.println("name " + lastOne.name);
+        System.out.println("addr " + lastOne.address);
+        System.out.println("city " + lastOne.region);
     }
 }

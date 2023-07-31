@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_NUM = 50;
+    public static int m, n;
+    public static char[][] grid = new char[MAX_NUM][MAX_NUM];
+
+    public static boolean inRange(int x, int y) {
+        return 0<=x && x<n && 0<=y && y<m; 
+    }
+
+    public static int isLee(int x, int y) {
+        int ret = 0;
+        
+        if (grid[x][y] == 'L') {
+            if (inRange(x, y+2) && grid[x][y+1] == 'E' && grid[x][y+2] == 'E') {  // 오른쪽
+                ret ++;
+            } 
+            if (inRange(x, y-2) && grid[x][y-1] == 'E' && grid[x][y-2] == 'E') {  // 왼쪽
+                ret ++;
+            } 
+            if (inRange(x+2, y) && grid[x+1][y] == 'E' && grid[x+2][y] == 'E') {  // 아래
+                ret ++;
+            } 
+            if (inRange(x-2, y) && grid[x-1][y] == 'E' && grid[x-2][y] == 'E') {  // 위
+                ret ++;
+            } 
+            if (inRange(x+2, y+2) && grid[x+1][y+1] == 'E' && grid[x+2][y+2] == 'E') {  // 우측 아래
+                ret ++;
+            } 
+            if (inRange(x-2, y-2) && grid[x-1][y-1] == 'E' && grid[x-2][y-2] == 'E') {  // 좌측 위
+                ret ++;
+            } 
+            if (inRange(x+2, y-2) && grid[x+1][y-1] == 'E' && grid[x+2][y-2] == 'E') {  // 좌측 아래 
+                ret ++;
+            } 
+            if (inRange(x-2, y+2) && grid[x-1][y+1] == 'E' && grid[x-2][y+2] == 'E') {  // 우측 위 
+                ret ++;
+            }
+        } 
+        return ret;
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+        
+        for (int i=0; i<n; i++) {
+            String str = sc.next();
+            for (int j=0; j<m; j++) {
+                grid[i][j] = str.charAt(j);
+            }
+        }
+
+        int cnt = 0;
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<m; j++) {
+                if (isLee(i, j) > 0) {
+                    cnt += isLee(i, j);
+                }
+            }
+        }
+        System.out.println(cnt);
+    }
+}

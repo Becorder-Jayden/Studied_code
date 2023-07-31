@@ -1,0 +1,46 @@
+import java.util.Scanner; 
+
+class Day {
+    String date, day, weather; 
+
+    public Day() {
+        this.date = "2100-01-01";
+        this.day = "";
+        this.weather = "";
+    }
+
+    public Day(String date, String day, String weather) {
+        this.date = date;
+        this.day = day;
+        this.weather = weather;
+    }
+}
+
+public class Main {
+    public static final int MAX_N = 100;
+    public static int n;
+    public static Day[] days = new Day[MAX_N];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            String date = sc.next();
+            String day = sc.next();
+            String weather = sc.next();
+            days[i] = new Day(date, day, weather);
+        }
+
+        Day closeDay = new Day();
+        for (int i=0; i<n; i++) {
+            if ((days[i].weather.equals("Rain")) && (days[i].date.compareTo(closeDay.date) < 0)) {
+                closeDay = days[i];
+            }
+        }
+
+        System.out.print(closeDay.date+" ");
+        System.out.print(closeDay.day+" ");
+        System.out.print(closeDay.weather+" ");
+    }
+}
