@@ -1,0 +1,48 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static final int MAX_N = 100;
+    public static int[] A = new int[MAX_N];
+    public static int[] B = new int[MAX_N];
+    public static int[] temp = new int[MAX_N];  // *추가 배열 사용
+    public static int m, n;
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            A[i] = sc.nextInt();
+        }
+        for (int i=0; i<m; i++) {
+            B[i] = sc.nextInt();
+        }
+        
+        Arrays.sort(B, 0, m);  // B 배열에 정렬
+
+        int cnt = 0;
+        for (int i=0; i<n-m+1; i++) {
+            
+            for (int j=0; j<m; j++) {
+                temp[j] = A[i+j];  // i+j 인덱스의 값을 temp에 저장
+            }
+
+            Arrays.sort(temp, 0, m);  // temp 배열 정렬
+
+            boolean isSame = true;
+            for (int j=0; j<m; j++) {  // 정렬된 배열을 가지고 비교
+                if (temp[j] != B[j]) {
+                    isSame = false;
+                    break;
+                }
+            }
+
+            if (isSame) {
+                cnt ++; 
+            }
+        }
+        System.out.println(cnt); 
+    }
+}

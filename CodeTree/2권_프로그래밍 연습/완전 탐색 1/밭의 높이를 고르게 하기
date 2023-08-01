@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_NUM = 100;
+    public static int n, h, t;
+    public static int[] arr = new int[MAX_NUM];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        h = sc.nextInt();  // 목표 높이 
+        t = sc.nextInt();  // 최소 연속
+
+        for (int i=0; i<n; i++){ 
+            arr[i] = sc.nextInt();
+        }
+
+        int ans = Integer.MAX_VALUE;
+        for (int i=0; i<n-t+1; i++) {
+            int cost = 0;
+            for (int j=0; j<t; j++) {
+                cost += Math.abs(h-arr[i+j]);
+            }
+            ans = Math.min(ans, cost);
+        }
+        System.out.println(ans); 
+    }
+}

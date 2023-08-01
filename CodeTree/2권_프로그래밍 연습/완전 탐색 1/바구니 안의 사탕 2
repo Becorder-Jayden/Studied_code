@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_NUM = 100;
+    public static int n, k;
+    public static int[] arr = new int[MAX_NUM+1];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        k = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            int amount = sc.nextInt();
+            int idx = sc.nextInt();
+
+            arr[idx] += amount;
+        }
+
+        int ans = 0;
+        for (int i=0; i<MAX_NUM; i++) {
+            int candy = 0;
+            for (int j=i-k; j<=i+k; j++) {  // 범위를 정확하게 잡아주는 것이 이로움
+                if (0<=j && j<=MAX_NUM) {
+                    candy += arr[j];
+                }
+            }
+            ans = Math.max(ans, candy);
+        }
+        System.out.println(ans);
+    }
+}

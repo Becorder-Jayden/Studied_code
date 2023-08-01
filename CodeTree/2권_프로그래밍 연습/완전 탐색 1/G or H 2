@@ -1,0 +1,51 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_N = 100;
+    public static int n, k;
+    public static int[] arr = new int[MAX_N+1];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+
+        for (int i=0; i<n; i++) {
+            int idx = sc.nextInt();
+            char c = sc.next().charAt(0);
+
+            if (c == 'G') {
+                arr[idx] = 1;
+            } else {
+                arr[idx] = 2;
+            }
+        }
+
+        int maxLen = 0;
+        for (int i=0; i<=MAX_N; i++) {
+            for (int j=i+1; j<=MAX_N; j++) {
+
+                // 양 끝 위치(i, j) 사람 확인
+                if (arr[i] == 0 || arr[j] == 0) {
+                    continue;  // 한 쪽이라도 없으면 continue
+                }
+
+                int cntG = 0;
+                int cntH = 0;
+                for (int k=i; k<=j; k++) {  // (i, j) 구간 내 확인
+                    if (arr[k] == 1) {
+                        cntG ++;
+                    } else if (arr[k] == 2) {
+                        cntH ++;
+                    }
+                }
+
+                // 조건을 만족할 때 구간의 길이 구하기
+                if (cntG == 0 || cntH == 0 || cntG == cntH) {
+                    int len = j-i;
+                    maxLen = Math.max(maxLen, len);  // 최댓값과 비교
+                }
+            }
+        }
+        System.out.println(maxLen);
+    }
+}

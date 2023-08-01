@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_N = 100;
+    public static int n;
+    public static int[] arr = new int[MAX_N];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        for (int i=0; i<n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int ans = 0;
+        for (int i=0; i<n; i++) {
+            for (int j=i; j<n; j++) {
+
+                // [i, j] 구간 내 합 구하기
+                int partialSum = 0;
+                for (int k=i; k<=j; k++) {  
+                    partialSum += arr[k];
+                }
+
+                // 평균 구하기
+                double avg = (double)partialSum/(j-i+1);  //*j-i+1 구간 주의, *(double): 소수점을 표기하는 나눗셈
+
+                // 구간 내 평균과 동일한 값 확인
+                boolean exist = false;
+                for (int k=i; k<=j; k++) {
+                    if (arr[k] == avg) {
+                        exist =  true;
+                    }
+                }
+                if (exist) {
+                    ans ++; 
+                }
+            }
+        }
+        System.out.println(ans);
+    }
+}
