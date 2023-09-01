@@ -43,3 +43,6 @@ public static void explode() {
 	} while (didExplode);
 }
 ```
+
+### 격자 안에서 단일 객체를 이동
+- 벽 짚고 미로 탈출하기** : System.exit(0), do-while
