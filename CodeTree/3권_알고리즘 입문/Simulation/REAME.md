@@ -46,3 +46,4 @@ public static void explode() {
 
 ### 격자 안에서 단일 객체를 이동
 - 벽 짚고 미로 탈출하기** : System.exit(0), do-while
+- 주사위 던지기**
