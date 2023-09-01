@@ -45,5 +45,8 @@ public static void explode() {
 ```
 
 ### 격자 안에서 단일 객체를 이동
+반복되는 행위에 대해 initialize가 필요한 경우에 대해 생각해보기
 - 벽 짚고 미로 탈출하기** : System.exit(0), do-while
 - 주사위 던지기**
+- 대폭발* : 두개의 배열 사용, ArrayList 사용해서도 풀어보기
+- 뱀은 사과를 좋아해***
