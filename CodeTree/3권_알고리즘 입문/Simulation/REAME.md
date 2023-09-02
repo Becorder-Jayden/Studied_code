@@ -49,4 +49,4 @@ public static void explode() {
 - 벽 짚고 미로 탈출하기** : System.exit(0), do-while
 - 주사위 던지기**
 - 대폭발* : 두개의 배열 사용, ArrayList 사용해서도 풀어보기
-- 뱀은 사과를 좋아해***
+- 뱀은 사과를 좋아해*** : 뱀 → ArrayList 활용 

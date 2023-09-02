@@ -91,7 +91,7 @@ public class Main {
             int nx = head.x + dx[dir];
             int ny = head.y + dy[dir];
 
-            //==움직일 수 없는 상황 의==//
+            //==움직일 수 없는 상황 정의==//
             if (!canGo(nx, ny)) {  // 1. 범위 밖으로 나갔을 때 
                 return false; 
             }
