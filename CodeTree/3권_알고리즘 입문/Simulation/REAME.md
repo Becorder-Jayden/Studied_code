@@ -53,4 +53,6 @@ public static void explode() {
 
 
 ### 격자 안에서 여러 객체를 이동
+moveAll(), removeDuplicate()
+- 숫자가 가장 큰 인접한 곳으로 동시에 이동 
 - 벽이 있는 충돌 실험 : Q. 아주 오랜 시간이 흐른 후를 어떻게 정의?
