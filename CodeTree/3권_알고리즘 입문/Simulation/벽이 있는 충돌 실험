@@ -1,0 +1,135 @@
+// https://www.codetree.ai/missions/2/problems/collision-experiment-with-wall?&utm_source=clipboard&utm_medium=text
+
+import java.util.Scanner;
+
+public class Main {
+    public static final int MAX_N = 50;
+    public static final int ASCII_NUM = 128;
+    public static final int COLLIDE = -2;
+    public static final int BLANK = -1; 
+
+    // U, R, D, L: *대칭이 되도록 설계 필수
+    public static int[] dx = new int[]{-1,0,0,1};
+    public static int[] dy = new int[]{0,1,-1,0};
+
+    public static int t, n, m;
+
+    public static int[][] currDir = new int[MAX_N][MAX_N];
+    public static int[][] nextDir = new int[MAX_N][MAX_N];
+    public static char[] mapper = new char[ASCII_NUM];
+
+    public static void initializeGrid() {
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<n; j++) {
+                currDir[i][j] = BLANK;
+            } 
+        }
+    }
+
+    public static void initializeTemp() {
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<n; j++) {
+                nextDir[i][j] = BLANK;
+            }
+        }
+    }
+
+    public static boolean inRange(int x, int y) {
+        return 0<=x && x<n && 0<=y && y<n;
+    }
+
+    public static void updateTemp(int x, int y, int dir) {
+        if (nextDir[x][y] == BLANK) {
+            nextDir[x][y] = dir;
+        } else {
+            nextDir[x][y] = COLLIDE;  // 개수로 카운트하면 틀릴 수 있음, **COLLIDE 상태를 정의해서 활용하자
+        }
+    }
+
+    public static void move(int x, int y, int dir) {
+        int nx = x + dx[dir];
+        int ny = y + dy[dir];
+
+        // 벽에 부딪히지 않았을 때
+        if (inRange(nx, ny)) {
+            updateTemp(nx, ny, dir);
+        } 
+        // 벽에 부딪혔을 때 
+        else {
+            updateTemp(x, y, 3-dir);
+        }
+    }
+
+    public static void updateCurrDir() {
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<n; j++) {
+                currDir[i][j] = nextDir[i][j];
+            }
+        }
+    }
+    
+    public static void removeDuplicateMarbles() {
+        for(int i=0; i<n; i++)
+            for(int j=0; j<n; j++)
+                if(currDir[i][j] == COLLIDE)
+                    currDir[i][j] = BLANK;
+    }
+
+    public static void moveAll() {
+        initializeTemp();
+        for (int i=0; i<n; i++) {
+            for (int j=0; j<n; j++) {
+                if (currDir[i][j] != BLANK) {
+                    move(i, j, currDir[i][j]);
+                }
+            }
+        }
+        updateCurrDir(); 
+    }
+
+    public static void simulate() {
+        moveAll();
+        removeDuplicateMarbles();
+    }
+
+    // Q:아주 오랜 시간이 흐른 후를 어떻게 정의하지? A. 2*n 번
+    public static void main(String[] args) {
+        mapper['U'] = 0;
+        mapper['R'] = 1;
+        mapper['L'] = 2;
+        mapper['D'] = 3;
+
+        Scanner sc = new Scanner(System.in);
+        t = sc.nextInt();  // 총 테스트 케이스
+
+        while (t-->0) {
+            n = sc.nextInt();
+            m = sc.nextInt();  // 주어지는 구슬 정보의 개수
+            
+            initializeGrid();
+
+            for (int i=0; i<m; i++) {
+                int x = sc.nextInt();
+                int y = sc.nextInt();
+                int dir = mapper[sc.next().charAt(0)];
+                x--; y--;
+                currDir[x][y] = dir;
+            }
+
+            // **2*n번 이후에는 충돌이 절대 일어날 수 없음 → 시뮬레이션을 총 2*n번 진행
+            for (int i=0; i<2*n; i++) {
+                simulate();
+            }
+
+            int ans = 0;
+            for (int i=0; i<n; i++) {
+                for (int j=0; j<n; j++) {
+                    if (currDir[i][j] != BLANK) {
+                        ans ++;
+                    }
+                }
+            }
+            System.out.println(ans); 
+        }
+    }
+}
