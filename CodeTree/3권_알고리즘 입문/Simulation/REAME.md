@@ -56,5 +56,8 @@ public static void explode() {
 moveAll(), removeDuplicate()
 - 숫자가 가장 큰 인접한 곳으로 동시에 이동 
 - 벽이 있는 충돌 실험 : Q. 아주 오랜 시간이 흐른 후를 어떻게 정의?, 기본문제
-- ***쌓인 숫자의 순차적 이동 : 2차원 배열에 ArrayList 값 활용, 쌓여있는 값 확인
-- ** 구슬의 이동
+- 쌓인 숫자의 순차적 이동*** : 2차원 배열에 ArrayList 값 활용, 쌓여있는 값 확인
+- 구슬의 이동** : 우선순위를 기준으로 제거
+``` java
+public static ArrayList<Pair>[][] grid = new ArrayList<>[MAX_N][MAX_N];
+- 벽이 없는 충돌 실험***
