@@ -1,5 +1,7 @@
 // https://www.codetree.ai/missions/8/problems/the-sum-of-the-elements-is-0?&utm_source=clipboard&utm_medium=text
 
+// 1억 개의 for문 수행에 시간이 1초 정도 소요, 따라서 1억 번의 연산 이하인 경우 제한 시간내에 수행
+
 import java.util.Scanner;
 import java.util.HashMap;
 
