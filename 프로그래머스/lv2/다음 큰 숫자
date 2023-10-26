@@ -1,0 +1,36 @@
+class Solution {
+   
+    public static final int MAX_N = 1000000;
+    
+    public static int cntOne(int num) {
+        String res = Integer.toBinaryString(num); 
+        char[] c = res.toCharArray();
+        
+        int ret = 0;
+        for (int i=0; i<c.length; i++) {
+            if (c[i] == '1') {
+                ret ++; 
+            }
+        }
+        
+        return ret;
+    }
+    
+    public int solution(int n) {
+        int answer = 0;
+
+        int oneNum = cntOne(n);
+        int numIdx = n+1;
+        
+        while (true) {
+            if (numIdx <= MAX_N && cntOne(numIdx) == oneNum) {
+                answer = numIdx;
+                break;   
+            }
+            
+            numIdx++;
+        }
+        
+        return answer;
+    }
+}

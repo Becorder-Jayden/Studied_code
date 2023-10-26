@@ -1,0 +1,33 @@
+import java.util.*;
+
+class Solution {
+    public static int MAX_BROWN = 5000; 
+    public int[] solution(int brown, int yellow) {
+        int[] answer = new int[2];
+        ArrayList<Integer> al = new ArrayList<>();  // 가로가 될 수 있는 후보
+        
+        // 노란색 가로 개수를 줄여가면서 확인
+        for (int i=yellow; i>0; i--) {
+            if (yellow%i == 0) {
+                if (i >= yellow/i) {
+                    al.add(i);
+                }
+            }
+        }
+        
+        for (int i=0; i<al.size(); i++) {
+            int row = al.get(i);
+            int col = yellow/row;
+           
+            int bro = row*2 + col*2 + 4;
+            
+            if (bro == brown) {
+                answer[0] = row + 2; 
+                answer[1] = col + 2; 
+                break;
+            }
+        }
+        
+        return answer;
+    }
+}

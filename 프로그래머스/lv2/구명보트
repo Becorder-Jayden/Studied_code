@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Solution {
+  public int solution(int[] people, int limit) {
+    int answer = 0;
+
+    Arrays.sort(people);
+
+    int min = 0;
+
+    // max 숫자를 하나씩 줄여가면서 확인
+    for (int max = people.length - 1; min <= max; max--){
+      
+        // min+max 숫자의 합이 limit보다 작거나 같을 경우, min을 증가
+        if (people[min] + people[max] <= limit) {
+          min ++;
+      }
+      answer ++;
+    }
+
+    return answer;
+    }
+}
