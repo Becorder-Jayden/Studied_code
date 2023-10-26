@@ -22,7 +22,7 @@ public class Main {
     
     public static int n;
     public static ArrayList<Pair> nums = new ArrayList<>();
-
+`
     public static int ans;
     
     public static void main(String[] args) {

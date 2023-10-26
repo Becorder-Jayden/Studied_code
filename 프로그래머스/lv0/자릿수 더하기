@@ -1,0 +1,15 @@
+// char 타입의 '0'은 int형에서 48의 값을 갖는다 
+
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+     
+        String str = n+"";
+        char[] c = str.toCharArray();
+        for (int i=0; i<c.length; i++) {
+            answer += (int)c[i] - 48;
+        }
+        
+        return answer;
+    }
+}
