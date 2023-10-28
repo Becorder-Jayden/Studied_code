@@ -1,0 +1,32 @@
+import java.util.*;
+
+// DP
+
+// 순간이동: 현재위치 * 2
+// 점프: 건전지 사용
+
+
+public class Solution {
+    
+    public static int ans = 1;
+    
+    public static void findMin(int cost, int idx, int dest) {
+        if (idx == 1) {
+            ans += cost;
+            return;
+        }
+        
+        if (idx%2 == 0) {
+            findMin(cost, idx/2, dest);
+        } else {
+            findMin(cost+1, idx-1, dest);
+        }
+    }
+    
+    public int solution(int n) {
+        
+        findMin(0, n, n);
+        
+        return ans;
+    }
+}
