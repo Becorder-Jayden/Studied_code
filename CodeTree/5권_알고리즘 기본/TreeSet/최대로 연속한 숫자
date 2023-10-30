@@ -1,0 +1,59 @@
+import java.util.*;
+
+class Tuple implements Comparable<Tuple> {
+    int len, s, e;
+    public Tuple(int len, int s, int e) {
+        this.len = len;
+        this.s = s;
+        this.e = e;
+    }
+
+    @Override
+    public int compareTo(Tuple t) {
+        if (this.len != t.len) {
+            return t.len - this.len;  // len 기준 내림차순 정렬
+        } else if (this.s != t.s) {
+            return this.s - t.s;  // s 기준 오름차순 정렬
+        } else {
+            return this.e - t.e;  // e 기준 오름차순 정렬
+        }
+    }
+}
+public class Main {
+    
+    public static int n, m;
+    public static TreeSet<Integer> sNum = new TreeSet<>();  // 지워진 숫자 모음
+    public static TreeSet<Tuple> sLen = new TreeSet<>();  // Tuple: (길이, 시작, 끝)
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        m = sc.nextInt();
+
+        // sNum: 지워진 숫자 모음, 깔끔한 코드 처리를 위해 범위 밖의 숫자를 treeset에 추가
+        sNum.add(-1);
+        sNum.add(n+1);
+
+        // sLen: 길이간 긴 구간부터 나오도록 함
+        sLen.add(new Tuple(n+1, -1, n+1));
+
+        for (int i=0; i<m; i++) {
+            int y = sc.nextInt();
+
+            sNum.add(y);  // 입력받은 숫자를 treeset에 추가
+
+            // 입력받은 숫자 y를 기준으로, 바로 앞의 숫자를 x, 바로 뒤의 숫자를 z라고 두었다
+            int x = sNum.lower(y);
+            int z = sNum.higher(y);
+
+            // 구간의 길이는 (x, z) 구간이 사라지며, (x, y) 구간, (y, z) 구간이 새로 생겨남
+            sLen.remove(new Tuple(z-x-1, x, z));
+
+            sLen.add(new Tuple(y-x-1, x, y));
+            sLen.add(new Tuple(z-y-1, y, z));
+
+            // 길이 기준으로 내림차순 정렬되어 있으므로, first()는 길이가 가장 긴 값
+            System.out.println(sLen.first().len);
+        }
+    }
+}
