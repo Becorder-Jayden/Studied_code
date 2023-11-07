@@ -1,0 +1,59 @@
+import java.util.*;
+
+class Pair implements Comparable<Pair> {
+    int s, e;
+
+    public Pair (int s, int e) {
+        this.s = s;
+        this.e = e;
+    }
+
+    @Override
+    public int compareTo(Pair p) {
+        return this.s - p.s;
+    }
+}
+
+public class Main {
+    public static final int MAX_N = 100000;
+
+    public static int n, ans;
+    
+    public static Pair[] pairs = new Pair[MAX_N];
+    public static int[] L = new int[MAX_N];
+    public static int[] R = new int[MAX_N];
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);    
+        n = sc.nextInt();
+        for (int i=0; i<n; i++) {
+            int s = sc.nextInt();
+            int e = sc.nextInt();
+            pairs[i] = new Pair(s, e);
+        }
+
+        Arrays.sort(pairs, 0, n);  // Override로 정의한 정렬을 사용할 때, 리스트의 경우 Arrays.sort({대상}, {시작}, {끝})
+
+        // L 배열 채우기: (0, i)번까지 선분 중 최대의 e값
+        L[0] = pairs[0].e;
+        for (int i=1; i<n-1; i++) {
+            L[i] = Math.max(L[i-1], pairs[i].e);
+        }
+
+        // R 배열 채우기: (i, n-1)번까지 선분 중 최대의 e값
+        R[n-1] = pairs[n-1].e;
+        for (int i=n-2; i>=0; i--) {
+            R[i] = Math.min(R[i+1], pairs[i].e);
+        }
+
+        // 각 선분 i에 대해 왼쪽에서 가장 멀리 뻗은 L[i-1] 값, 오른쪽에서 가장 멀리 뻗은 R[i+1] 값 모두와 겹치지 않은 경우에만 답을 갱신
+        for (int i=0; i<n; i++) {
+            if (i > 0 && L[i-1] >= pairs[i].e) continue;
+            if (i < n-1 && R[i+1] <= pairs[i].e) continue;
+            ans ++;
+        }
+
+        System.out.println(ans); 
+        
+    }
+}
