@@ -1,0 +1,449 @@
+# 스레드 생성과 실행
+
+---
+
+## 스레드 시작
+
+### 자바 메모리 구조
+
+1. 메서드 영역 : 프로그램을 실행하는데 필요한 공통 데이터를 관리, 프로그램 모든 영역에서 공유
+   - 클래스 정보 : 클래스 실행 코드, 필드, 메서드, 생성자 코드 등 모든 실행 코드
+   - static 영역 : static 변수들을 보관
+   - 런타임 상수 풀 : 공통 리터럴 상수를 보관
+2. 스택 영역 : 자바를 실행하면 하나의 실행 스택이 생성된다
+   - 스택 프레임 : 메서드를 호출할 때마다 하나의 스택 프레임이 쌓이고, 종료되면 해당 스택 프레임이 제거된다
+3. 힙 영역 : 객체(인스턴스)와 배열이 생성되는 영역, 가비지 컬렉션이 이루어지는 주요 영역이며, 참조되지 않는 객체는 CG에 의해 스택 프레임이 제거된다
+
+### 스레드 생성
+
+```java
+//src/thread/start/HelloThread.class
+
+public class HelloThread extends Thread {
+
+	@Override
+	public void run() {
+		System.out.println(Thread.currentThread().getName() + ": run()");
+	}
+}
+```
+
+```java
+package thread.start;
+
+public class HelloThreadMain {
+  public static void main(String[] args) {
+    System.out.println(Thread.currentThread().getName() + ": main() start");
+
+    HelloThread helloThread = new HelloThread();
+			System.out.println(Thread.currentThread().getName() + ": start() 호출 전");
+      helloThread.start();  // run이 아니라 start를 실행해야 별도의 스레드에서 run() 코드가 실행된다
+			System.out.println(Thread.currentThread().getName() + ": start() 호출 후");
+      System.out.println(Thread.currentThread().getName() + ": main() end");
+    }
+}
+```
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/56b89df1-2144-412e-b918-abc0a64e1ac8/78b2fe4a-d3a4-4237-9e22-60bb82ca90c2/Untitled.png)
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/56b89df1-2144-412e-b918-abc0a64e1ac8/a3ef4d53-a5aa-40dc-bb80-42d69441993b/Untitled.png)
+
+cf. 반드시 start()를 호출해야 스택 공간을 할당 받고 스레드가 작동한다
+
+![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/56b89df1-2144-412e-b918-abc0a64e1ac8/6a4229b4-f694-4116-8076-07078e33a8c1/Untitled.png)
+
+cf. main 스레드가 run() 메서드를 실행하는 것이 아님, Thread-0 스레드가 run() 메서드를 실행한다
+
+메인 스레드는 start() 메서드를 실행 시키고 자기 일을 하러 넘어간다
+
+⇒ 스레드는 순서와 실행 기간을 모두 보장하지 않는다!
+
+## 데몬 스레드
+
+### 데몬 스레드
+
+스레드는 사용자 스레드 / 데몬 스레드로 구분할 수 있다
+
+사용자 스레드 : 프로그램의 주요 작업을 수행
+
+- 작업이 완료될 때 까지 실행
+- 모든 user 스레드가 종료되면 JVM도 종료
+
+데몬 스레드 : 백그라운드에서 보조적인 작업 수행
+
+- 모든 user 스레드가 종료되면 데몬 스레드는 자동으로 종료
+
+## 스레드 생성 - Runnable
+
+스레드를 생성할 때 1. Thread 클래스를 상속 받는 법과 2. Runnable 인터페이스를 구현하는 방법이 있다
+
+- 대체로 실무에서는 Runnable 인터페이스를 이용하는 방법을 택한다
+
+### Thread 상속 vs Runnable 구현
+
+|      | Thread 클래스 상속                                                          | Runnable 인터페이스 구현 |
+| ---- | --------------------------------------------------------------------------- | ------------------------ |
+| 장점 | 간단하게 구현 가능, Thread 클래스를 상속받아 run() 메서드만 재정의하면 된다 | 1. 상속이 자유롭다       |
+
+2. 스레드와 실행할 작업은 분리해 코드의 가독성을 높일 수 있다
+3. 여러 스레드가 동일한 Runnable 객체를 공유할 수 있어 자원관리를 효율적으로 할 수 있다 |
+   | 단점 | 1. 자바는 단일 상속만 허용하기 때문에, 다른 클래스를 상속받고 잇는 경우 Thread 클래스를 상속받을 수 없다
+4. 인터페이스를 사용하는 방법에 비해 유연성이 떨어진다 | 코드가 약간 복잡해질 수 있다 |
+
+⇒ Runnable 인터페이스를 구현해 사용하자
+
+## 로거 만들기
+
+어떤 스레드가 코드를 실행하는지 출력하기 위해 긴 코드를 매번 작성하는 것이 번거롭다
+
+- 실무에서는 logger 라이브러리를 사용하지만, 실습에서 직접 만들어본다
+
+```java
+public abastract class MyLogger {
+
+	private state final DateTimeformatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss.SSS");
+
+	public static void log(Object obj) {
+		String time = LocalTime.now().format(formatter);
+		System.out.printf("$s [$9s] $s\n", time, Thread.currentThread().getName(), obj);
+	}
+}
+```
+
+```java
+import static util.MyLogger.*;
+
+public class MyLoggerMain {
+
+	public static void main(String[] args) {
+		log("hello thread");
+		log(123);
+	}
+}
+```
+
+## 여러 스레드 만들기
+
+## Runnable을 만드는 다양한 방법
+
+### 1-1. Runnable 클래스 재정의 후 사용
+
+Runnable 구현 객체를 분리해서 사용
+
+```java
+public class HelloRunnable implements Runnable {
+
+	@Override
+	public void run() {
+		log("run()")
+	}
+}
+```
+
+```java
+public class InnerRunnableMainV1 {
+
+	public static void main(String[] args) {
+		log("main() start");
+
+		MyRunnable runnable = new MyRunnable();
+		Thread thread = new Thread(runnable);
+		thread.start();
+
+		log("main() end");
+	}
+}
+```
+
+### 1-2. 클래스 내부에서 중첩 클래스를 만들어 사용(better)
+
+굳이 공유가 많이 되지 않을 것으로 예상될 때, 중첩 클래스를 사용하면 Runnable을 더 편리하게 만들 수 있다
+
+```java
+public class InnerRunnableMainV2 {
+
+	public static void main(String[] args) {
+		log("main() start");
+
+		MyRunnable runnable = new MyRunnable();
+		Thread thread = new Thread(runnable);
+		thread.start();
+
+		log("main() end");
+	}
+
+	static class MyRunnable implements Runnable {
+
+		@Override
+		public void run() {
+			log("run()")
+		}
+	}
+}
+```
+
+### 2. 익명클래스 사용
+
+- 특정 메서드 안에서만 간단히 정의하고 사용하고 싶다면 익명 클래스를 사용하면 된다
+
+```java
+public class InnerRunnableMainV2 {
+
+	public static void main(String[] args) {
+		log("main() start");
+
+		Runnable runnable = new Runnable() {
+			@Override
+			public void run() {
+				log("run()")
+			}
+		}
+
+		Thread thread = new Thread(runnable);
+		thread.start();
+
+		log("main() end");
+	}
+}
+```
+
+### 3. 익명클래스 + 변수 없이 사용
+
+익명 클래스를 참조하는 변수를 만들지 않고 직접 전달이 가능하다
+
+```java
+public class InnerRunnableMainV3 {
+
+	public static void main(String[] args) {
+		log("main() start");
+
+		Thread thread = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				log("run()")
+			}
+		});
+		thread.start();
+
+		log("main() end");
+	}
+}
+```
+
+### 4. 람다 사용(expert)
+
+```java
+public class InnerRunnableMainV3 {
+
+	public static void main(String[] args) {
+		log("main() start");
+
+		Thread thread = new Thread(() -> log("run()"));
+		thread.start();
+
+		log("main() end");
+	}
+}
+```
+
+## 문제와 풀이
+
+### 문제 1 : Thread 상속
+
+요구사항에 맞춰 멀티스레드 프로그램을 작성하기
+
+1. Thread 클래스를 상속받은 CounterThread라는 스레드 클래스를 만든다
+2. 이 스레드는 1~5까지의 숫자를 1초 간격으로 출력한다. 이때 앞서 배운 log()를 사용한다
+3. main() 메서드에서 CounterThread 스레드 클래스를 만들고 실행한다
+4. 실행 결과를 참고한다
+
+   [ Thread-0] value: 1
+   [ Thread-0] value: 2
+   [ Thread-0] value: 3
+   [ Thread-0] value: 4
+   [ Thread-0] value: 5
+
+```java
+import static util.MyLogger.log;
+
+public class StartTest1main {
+
+	public static void main(String[] args) {
+		CounterThread tread = new CounterThread();
+		tread.start();
+	}
+
+	static class CounterThread extends Thread {
+
+		@Overrdie
+		public void run() {
+			for (int i=1; i<=5; i++) {
+				log("value: " + i);
+				try {
+					Thread.sleep(1000);
+				} catch (IterruptedException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		}
+	}
+}
+```
+
+### 문제 2: Runnable 구현
+
+요구사항에 맞춰 멀티스레드 프로그램을 작성하기
+
+1. CounterRunnable 이름의 클래스를 생성한다. 이 클래스는 Runnable 인터페이스를 구현해야 한다
+2. CounterRunnable은 1부터 5까지의 숫자를 1초 간격으로 출력한다. log()를 이용해서 줄력한다
+3. main 메서드에서 CounterRunnable 인스턴스를 이용해서 Thread를 생성하고 실행한다
+4. 스레드 이름은 counter로 지정한다
+
+   [ counter] value: 1
+   [ counter] value: 2
+   [ counter] value: 3
+   [ counter] value: 4
+   [ counter] value: 5
+
+```java
+import static util.MyLogger.log;
+
+public class StartTest2Main {
+
+	public static void main(String[] args) {
+		Thread tread = new Thread(new CounterRunnable(), "counter");
+		tread.start();
+	}
+
+	static class CounterRunnable implements Runnable {
+
+		@Overrdie
+		public void run() {
+			for (int i=1; i<=5; i++) {
+				log("value: " + i);
+				try {
+					Thread.sleep(1000);
+				} catch (IterruptedException e) {
+					throw new RuntimeException(e);
+				}
+			}
+		}
+	}
+}
+```
+
+### 문제 3: Runnable 익명 클래스 구현
+
+문제 2번의 풀이를 익명 클래스로 구현한다
+
+style1)
+
+```java
+import static util.MyLogger.log;
+
+public class StartTest2Main {
+
+	public static void main(String[] args) {
+
+		Runnable runnable = new Runnable() {
+			@Override
+			public void run() {
+				for (int i=1; i<=5; i++) {
+					log("value: " + i);
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						throw new RuntimeExcpetion(e);
+					}
+				}
+			}
+		};
+
+		Thread thread = new Thread(runnable, "counter");
+		thread.start();
+	}
+}
+```
+
+style2)
+
+```java
+import static util.MyLogger.log;
+
+public class StartTest2Main {
+
+	public static void main(String[] args) {
+
+		Thread thread = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				for (int i=1; i<=5; i++) {
+					log("value: " + i);
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						throw new RuntimeExcpetion(e);
+					}
+				}
+			}
+		}, "counter");
+		thread.start();
+	}
+}
+```
+
+### 문제 4: 여러 스레드 사용
+
+- Thread-A, Thread-B 두 스레드를 생성한다
+- Thread-A는 1초에 한 번씩 A를 출력한다
+- Thread-B는 0.5초에 한 번씩 B를 출력한다
+- 프로그램을 강제종료할 때까지 계속 실행한다
+
+[ Thread-A] A
+[ Thread-B] B
+[ Thread-B] B
+[ Thread-A] A
+[ Thread-B] B
+
+…
+
+```java
+import static util.MyLogger.log;
+
+public class StartTest4Main {
+
+	public static void main(String[] args) {
+
+		Thread threadA = new Thread(new PrintWork("A", 1000), "Thread-A");
+		Thread threadB = new Thread(new PrintWork("B", 500), "Thread-B");
+
+		threadA.start();
+		threadB.start();
+
+		static class PrintWork implements Runnable {
+
+			private String content;
+			private int sleeMs;
+
+			public PrintWork(String content, int sleepMs) {
+			this.content = content;
+			this.sleepMs = sleepMs;
+			}
+
+			@Override
+			public void run() {
+			while (true) {
+				log(content);
+				try {
+					Thread.sleep(sleepMs);
+				} catch (InterruptedException e) {
+				thorw new RuntimeException(e);
+			}
+		}
+	}
+}
+```
+
+## 정리
+
+Thread 클래스 상속 방식 보다 Runnable 인터페이스를 구현하자
